@@ -14,30 +14,22 @@ grow_vertical = 2
 script = ExtResource("1_uhuwb")
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -149.5
+layout_mode = 2
+offset_left = 276.5
 offset_top = 100.0
-offset_right = 149.5
-offset_bottom = 161.0
+offset_right = 875.5
+offset_bottom = 218.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_jg4ew")
 theme_override_font_sizes/font_size = 100
 text = "Foodie Fury"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -95.0
-offset_top = -334.0
-offset_right = 95.0
-offset_bottom = -242.0
+layout_mode = 2
+offset_left = 441.0
+offset_top = 295.0
+offset_right = 707.0
+offset_bottom = 446.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 10
@@ -47,6 +39,12 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_jg4ew")
 theme_override_font_sizes/font_size = 30
 text = "Jugar"
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_jg4ew")
+theme_override_font_sizes/font_size = 30
+text = "Ajustes"
 
 [node name="Salir" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -58,4 +56,5 @@ text = "Salir
 [node name="ParallaxBackground" parent="." instance=ExtResource("3_vlgqp")]
 
 [connection signal="pressed" from="VBoxContainer/Jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_pressed"]

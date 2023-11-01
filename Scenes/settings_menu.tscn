@@ -1,0 +1,175 @@
+[gd_scene load_steps=5 format=3 uid="uid://cn5h4f8ubce7p"]
+
+[ext_resource type="Script" path="res://Scripts/settings_menu.gd" id="1_bpqlg"]
+[ext_resource type="FontFile" uid="uid://c0c4myavfhko0" path="res://Fonts/ZeroCool.otf" id="2_h5lny"]
+[ext_resource type="PackedScene" uid="uid://df6782cwru7" path="res://Scenes/parallax_background.tscn" id="2_qdvt8"]
+
+[sub_resource type="GDScript" id="GDScript_gw4cb"]
+script/source = "extends HSlider
+"
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -458.5
+offset_top = -259.5
+offset_right = 458.5
+offset_bottom = 259.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bpqlg")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_qdvt8")]
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = -115.0
+offset_top = -64.0
+offset_right = 1034.0
+offset_bottom = 585.0
+flat = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -493.0
+offset_top = -260.0
+offset_right = 493.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25098, 0.235294, 0.364706, 1)
+
+[node name="SettingsTabs" type="TabContainer" parent="."]
+layout_mode = 0
+offset_left = -34.0
+offset_top = -1.0
+offset_right = 951.0
+offset_bottom = 517.0
+theme_override_fonts/font = ExtResource("2_h5lny")
+
+[node name="Video" type="TabBar" parent="SettingsTabs"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsTabs/Video"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 11.0
+offset_right = 972.0
+offset_bottom = 473.0
+
+[node name="videoSettings" type="GridContainer" parent="SettingsTabs/Video/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="Brillo" type="Label" parent="SettingsTabs/Video/MarginContainer/videoSettings"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_h5lny")
+theme_override_font_sizes/font_size = 27
+text = "Brillo"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsTabs/Video/MarginContainer/videoSettings"]
+layout_mode = 2
+
+[node name="Maximo" type="Label" parent="SettingsTabs/Video/MarginContainer/videoSettings/HBoxContainer"]
+layout_mode = 2
+text = "Minimo
+"
+
+[node name="BrilloSlide2" type="HSlider" parent="SettingsTabs/Video"]
+layout_mode = 0
+offset_left = 231.5
+offset_top = 21.5
+offset_right = 882.5
+offset_bottom = 37.5
+min_value = 0.01
+max_value = 4.0
+step = 0.01
+value = 0.01
+
+[node name="Audio" type="TabBar" parent="SettingsTabs"]
+visible = false
+layout_mode = 2
+
+[node name="MusicVOL" type="HSlider" parent="SettingsTabs/Audio"]
+layout_mode = 2
+offset_left = 395.0
+offset_top = 18.0
+offset_right = 954.0
+offset_bottom = 34.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+min_value = 0.01
+max_value = 4.0
+step = 0.01
+value = 1.0
+script = SubResource("GDScript_gw4cb")
+
+[node name="EfectosVOL" type="HSlider" parent="SettingsTabs/Audio"]
+layout_mode = 0
+offset_left = 395.0
+offset_top = 73.0
+offset_right = 955.0
+offset_bottom = 89.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+min_value = 0.01
+max_value = 4.0
+step = 0.01
+value = 1.0
+script = SubResource("GDScript_gw4cb")
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsTabs/Audio"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="SettingsTabs/Audio/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="AudioMusicLbl" type="Label" parent="SettingsTabs/Audio/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_h5lny")
+theme_override_font_sizes/font_size = 27
+text = "Volumen de musica"
+
+[node name="Maximo2" type="Label" parent="SettingsTabs/Audio/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "MIN
+"
+
+[node name="AudioSFXLbl" type="Label" parent="SettingsTabs/Audio/MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_h5lny")
+theme_override_font_sizes/font_size = 27
+text = "Volumen de efectos"
+
+[node name="Maximo3" type="Label" parent="SettingsTabs/Audio/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "MIN
+"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="value_changed" from="SettingsTabs/Video/BrilloSlide2" to="." method="_on_brillo_slide_2_value_changed"]
+[connection signal="value_changed" from="SettingsTabs/Audio/MusicVOL" to="." method="_on_music_vol_value_changed"]
+[connection signal="value_changed" from="SettingsTabs/Audio/EfectosVOL" to="." method="_on_efectos_vol_value_changed"]
