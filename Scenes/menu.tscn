@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3vc7i7acbtxb"]
+[gd_scene load_steps=7 format=3 uid="uid://c3vc7i7acbtxb"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_uhuwb"]
 [ext_resource type="FontFile" uid="uid://c0c4myavfhko0" path="res://Fonts/ZeroCool.otf" id="2_jg4ew"]
 [ext_resource type="PackedScene" uid="uid://df6782cwru7" path="res://Scenes/parallax_background.tscn" id="3_vlgqp"]
+[ext_resource type="AudioStream" uid="uid://lns0awibxvkj" path="res://Sounds/pulsaBoton.mp3" id="4_61aol"]
+[ext_resource type="AudioStream" uid="uid://mgi4bie4m78d" path="res://Sounds/interfazSonido.mp3" id="5_lklq2"]
+[ext_resource type="PackedScene" uid="uid://ecdkkp64u7mx" path="res://Scenes/popupSettings.tscn" id="6_dcbpp"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -40,7 +43,7 @@ theme_override_fonts/font = ExtResource("2_jg4ew")
 theme_override_font_sizes/font_size = 30
 text = "Jugar"
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="Ajustes" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_jg4ew")
 theme_override_font_sizes/font_size = 30
@@ -55,6 +58,21 @@ text = "Salir
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("3_vlgqp")]
 
+[node name="Sonidos" type="Node2D" parent="." groups=["Sonidos"]]
+
+[node name="Click" type="AudioStreamPlayer2D" parent="Sonidos"]
+stream = ExtResource("4_61aol")
+
+[node name="Fondo" type="AudioStreamPlayer2D" parent="Sonidos"]
+stream = ExtResource("5_lklq2")
+autoplay = true
+
+[node name="Popup" parent="." instance=ExtResource("6_dcbpp")]
+visible = false
+
+[connection signal="mouse_entered" from="VBoxContainer/Jugar" to="." method="_on_jugar_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Jugar" to="." method="_on_jugar_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Ajustes" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Ajustes" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Salir" to="." method="_on_salir_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_pressed"]
