@@ -62,10 +62,12 @@ text = "Salir
 
 [node name="Click" type="AudioStreamPlayer2D" parent="Sonidos"]
 stream = ExtResource("4_61aol")
+bus = &"SFX"
 
 [node name="Fondo" type="AudioStreamPlayer2D" parent="Sonidos"]
 stream = ExtResource("5_lklq2")
 autoplay = true
+bus = &"Music"
 
 [node name="Popup" parent="." instance=ExtResource("6_dcbpp")]
 visible = false
