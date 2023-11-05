@@ -1,0 +1,132 @@
+[gd_scene load_steps=19 format=3 uid="uid://sxdjnhw2oqnm"]
+
+[ext_resource type="Texture2D" uid="uid://txwe2r0psh3y" path="res://figures/Sand.png" id="1_bblw7"]
+[ext_resource type="Texture2D" uid="uid://b1v310ul2fdhl" path="res://desert/2.png" id="3_8elxv"]
+[ext_resource type="Texture2D" uid="uid://gb2lrg06kw62" path="res://desert/9.png" id="4_4wf64"]
+[ext_resource type="Texture2D" uid="uid://by0vw2gjq6q5e" path="res://desert/6.png" id="5_jq6sr"]
+[ext_resource type="Texture2D" uid="uid://k2648yjk4i56" path="res://desert/7.png" id="6_exgwb"]
+[ext_resource type="Texture2D" uid="uid://c0txq5xccuny" path="res://desert/18.png" id="6_j46bi"]
+[ext_resource type="Texture2D" uid="uid://ch2c8kup5rg44" path="res://desert/29.png" id="6_nrtlg"]
+[ext_resource type="Texture2D" uid="uid://bux8ayuatahge" path="res://desert/17.png" id="7_gscot"]
+[ext_resource type="Texture2D" uid="uid://cu42w8lwsjmde" path="res://desert/20.png" id="7_im7ij"]
+[ext_resource type="Texture2D" uid="uid://cjud432umspgi" path="res://desert/10.png" id="7_wrntl"]
+[ext_resource type="Texture2D" uid="uid://cgybuyi31njna" path="res://desert/13.png" id="8_1ubln"]
+[ext_resource type="Texture2D" uid="uid://cahfkellnq58d" path="res://desert/22.png" id="8_i56w6"]
+[ext_resource type="Texture2D" uid="uid://ddpny2mmc6rpb" path="res://desert/15.png" id="9_85l5b"]
+[ext_resource type="Texture2D" uid="uid://tqpbk2sohb54" path="res://desert/8.png" id="13_7k38p"]
+[ext_resource type="Texture2D" uid="uid://810ef7jasp8c" path="res://desert/32.png" id="14_eoo3q"]
+[ext_resource type="Texture2D" uid="uid://dyfmvwevubbtx" path="res://desert/33.png" id="15_17hwl"]
+[ext_resource type="Texture2D" uid="uid://xhyxvyg5jsxo" path="res://desert/11.png" id="16_jstub"]
+[ext_resource type="Texture2D" uid="uid://bscqrctkmtmtu" path="res://desert/12.png" id="17_2iyi1"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1155.0
+offset_bottom = 649.0
+texture = ExtResource("1_bblw7")
+
+[node name="29" type="Sprite2D" parent="."]
+position = Vector2(987, 99)
+scale = Vector2(0.896985, 0.923729)
+texture = ExtResource("6_nrtlg")
+
+[node name="10" type="Sprite2D" parent="29"]
+position = Vector2(36.25, 57.5)
+scale = Vector2(0.892157, 0.875)
+texture = ExtResource("7_wrntl")
+
+[node name="3" type="Sprite2D" parent="29"]
+position = Vector2(-95.0001, 56)
+scale = Vector2(1.11224, 1.1)
+texture = ExtResource("3_8elxv")
+
+[node name="9" type="Sprite2D" parent="29"]
+position = Vector2(3.34448, 101.761)
+scale = Vector2(1.11485, 1.08257)
+texture = ExtResource("4_4wf64")
+
+[node name="18" type="Sprite2D" parent="."]
+position = Vector2(100, 506)
+scale = Vector2(0.152416, 0.182377)
+texture = ExtResource("6_j46bi")
+
+[node name="19" type="Sprite2D" parent="18"]
+position = Vector2(216.512, -126.112)
+scale = Vector2(1.1054, 1.06688)
+texture = ExtResource("6_j46bi")
+
+[node name="17" type="Sprite2D" parent="18"]
+position = Vector2(321.488, 131.596)
+scale = Vector2(1.14421, 1.14613)
+texture = ExtResource("7_gscot")
+
+[node name="13" type="Sprite2D" parent="18"]
+position = Vector2(-157.464, 378.338)
+scale = Vector2(2.20001, 1.0813)
+texture = ExtResource("8_1ubln")
+
+[node name="15" type="Sprite2D" parent="18"]
+position = Vector2(944.781, 520.899)
+scale = Vector2(3.34813, 1.96443)
+texture = ExtResource("9_85l5b")
+
+[node name="7" type="Sprite2D" parent="18"]
+position = Vector2(767.634, -367.371)
+scale = Vector2(2.32191, 1.0154)
+texture = ExtResource("5_jq6sr")
+
+[node name="20" type="Sprite2D" parent="."]
+position = Vector2(792, 444)
+scale = Vector2(0.265734, 0.241972)
+texture = ExtResource("7_im7ij")
+
+[node name="8" type="Sprite2D" parent="20"]
+position = Vector2(45.292, 219.977)
+scale = Vector2(0.832113, 0.947207)
+texture = ExtResource("6_exgwb")
+
+[node name="22" type="Sprite2D" parent="20"]
+position = Vector2(333.836, 85.845)
+scale = Vector2(1.02372, 1.19689)
+texture = ExtResource("8_i56w6")
+
+[node name="9" type="Sprite2D" parent="20"]
+position = Vector2(537.395, 334.343)
+scale = Vector2(0.826104, 0.912742)
+texture = ExtResource("13_7k38p")
+
+[node name="32" type="Sprite2D" parent="."]
+position = Vector2(281, 65)
+scale = Vector2(0.991667, 0.610656)
+texture = ExtResource("14_eoo3q")
+
+[node name="33" type="Sprite2D" parent="32"]
+position = Vector2(-60, 108.713)
+scale = Vector2(1.01695, 1.20792)
+texture = ExtResource("15_17hwl")
+
+[node name="34" type="Sprite2D" parent="32"]
+position = Vector2(49.8305, 150.99)
+scale = Vector2(1.30508, 1.36634)
+texture = ExtResource("14_eoo3q")
+
+[node name="35" type="Sprite2D" parent="32"]
+position = Vector2(98.6441, 48.3168)
+scale = Vector2(0.762712, 0.881188)
+texture = ExtResource("15_17hwl")
+
+[node name="11" type="Sprite2D" parent="32"]
+position = Vector2(124.068, 136.495)
+scale = Vector2(0.817421, 1.02928)
+texture = ExtResource("16_jstub")
+
+[node name="12" type="Sprite2D" parent="32"]
+position = Vector2(-23.3898, 258.797)
+scale = Vector2(0.599739, 0.791103)
+texture = ExtResource("17_2iyi1")
+
+[node name="13" type="Sprite2D" parent="32"]
+position = Vector2(-79.322, -13.2871)
+scale = Vector2(0.688693, 0.842142)
+texture = ExtResource("16_jstub")
