@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://sxdjnhw2oqnm"]
+[gd_scene load_steps=20 format=3 uid="uid://sxdjnhw2oqnm"]
 
 [ext_resource type="Texture2D" uid="uid://txwe2r0psh3y" path="res://figures/Sand.png" id="1_bblw7"]
 [ext_resource type="Texture2D" uid="uid://b1v310ul2fdhl" path="res://desert/2.png" id="3_8elxv"]
 [ext_resource type="Texture2D" uid="uid://gb2lrg06kw62" path="res://desert/9.png" id="4_4wf64"]
 [ext_resource type="Texture2D" uid="uid://by0vw2gjq6q5e" path="res://desert/6.png" id="5_jq6sr"]
+[ext_resource type="Texture2D" uid="uid://oyg7adgcw7vo" path="res://figures/cactus4_00.png" id="5_p70gq"]
 [ext_resource type="Texture2D" uid="uid://k2648yjk4i56" path="res://desert/7.png" id="6_exgwb"]
 [ext_resource type="Texture2D" uid="uid://c0txq5xccuny" path="res://desert/18.png" id="6_j46bi"]
 [ext_resource type="Texture2D" uid="uid://ch2c8kup5rg44" path="res://desert/29.png" id="6_nrtlg"]
@@ -20,14 +21,17 @@
 [ext_resource type="Texture2D" uid="uid://bscqrctkmtmtu" path="res://desert/12.png" id="17_2iyi1"]
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(-6, 2)
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 1155.0
-offset_bottom = 649.0
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 1280.0
+offset_bottom = 720.0
 texture = ExtResource("1_bblw7")
+metadata/_edit_use_anchors_ = true
 
 [node name="29" type="Sprite2D" parent="."]
-position = Vector2(987, 99)
+position = Vector2(1108, 135)
 scale = Vector2(0.896985, 0.923729)
 texture = ExtResource("6_nrtlg")
 
@@ -46,8 +50,11 @@ position = Vector2(3.34448, 101.761)
 scale = Vector2(1.11485, 1.08257)
 texture = ExtResource("4_4wf64")
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="29"]
+polygon = PackedVector2Array(-24.5269, -57.3762, -81.384, -46.5505, -91.4176, -17.3211, -99.2216, -10.8257, -98.1067, 3.2477, -91.4176, 6.49541, -96.9918, 16.2385, -91.4176, 36.8073, -89.188, 41.1376, -93.6473, 42.2202, -120.404, 43.3027, -120.404, 53.0459, -113.715, 58.4587, -113.715, 67.1193, -91.4176, 66.0367, -88.0731, 61.7064, -86.9583, 66.0367, -72.4652, 66.0367, -68.0059, 59.5413, 15.6075, 58.4587, 15.6075, 66.0367, 20.0669, 67.1193, 41.249, 64.9541, 54.6272, 67.1193, 59.0865, 59.5413, 99.2209, 59.5413, 99.2209, 44.3853, 93.6467, 42.2202, 98.1062, 19.4862, 96.9913, -9.74312, 89.1874, -14.0734, 92.532, -25.9817, 82.4983, -40.0551, 54.6272, -54.1284, 33.4451, -49.7982, 27.8708, -55.211, -7.8042, -55.211, -16.723, -49.7982)
+
 [node name="18" type="Sprite2D" parent="."]
-position = Vector2(100, 506)
+position = Vector2(177, 565)
 scale = Vector2(0.152416, 0.182377)
 texture = ExtResource("6_j46bi")
 
@@ -76,13 +83,18 @@ position = Vector2(767.634, -367.371)
 scale = Vector2(2.32191, 1.0154)
 texture = ExtResource("5_jq6sr")
 
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="18"]
+position = Vector2(-59.0486, -405.753)
+scale = Vector2(6.56098, 5.48315)
+polygon = PackedVector2Array(0, 5, -2, 11, 3, 22, -2, 22, 3, 32, -28, 30, -32, 38, -26, 46, -29, 48, -27, 58, -32, 58, -31, 72, -26, 75, -30, 76, -29, 80, -26, 85, -32, 88, -28, 116, 15, 116, 16, 138, 21, 146, 99, 145, 104, 113, 97, 111, 101, 103, 101, 95, 105, 83, 98, 76, 102, 66, 96, 66, 104, 59, 100, 47, 87, 45, 85, 34, 80, 32, 79, 26, 84, 14, 81, 11, 84, 7, 78, 2)
+
 [node name="20" type="Sprite2D" parent="."]
-position = Vector2(792, 444)
+position = Vector2(916, 538)
 scale = Vector2(0.265734, 0.241972)
 texture = ExtResource("7_im7ij")
 
 [node name="8" type="Sprite2D" parent="20"]
-position = Vector2(45.292, 219.977)
+position = Vector2(79.0259, 231.431)
 scale = Vector2(0.832113, 0.947207)
 texture = ExtResource("6_exgwb")
 
@@ -92,12 +104,17 @@ scale = Vector2(1.02372, 1.19689)
 texture = ExtResource("8_i56w6")
 
 [node name="9" type="Sprite2D" parent="20"]
-position = Vector2(537.395, 334.343)
+position = Vector2(541.894, 289.289)
 scale = Vector2(0.826104, 0.912742)
 texture = ExtResource("13_7k38p")
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="20"]
+position = Vector2(-11.2898, -202.502)
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(-15.0522, 12.3981, -33.8684, 82.6539, -30.1052, 119.848, -41.3948, 140.512, -48.9209, 136.379, -63.9736, 111.583, -71.5, 123.981, -90.3157, 111.583, -90.3157, 66.1232, -120.421, 86.7867, -101.605, 152.91, -94.0789, 144.645, -79.0264, 148.777, -71.5, 157.043, -67.7368, 177.706, -71.5, 210.768, -116.658, 198.37, -105.368, 252.095, -203.21, 231.431, -188.158, 285.156, -173.105, 281.024, -135.474, 305.82, -120.421, 334.749, -105.368, 330.616, -86.5525, 388.474, -109.132, 392.607, -120.421, 417.403, 37.6316, 417.403, 48.9209, 388.474, 33.8684, 388.474, 26.342, 371.943, 41.3948, 343.014, 56.4473, 334.749, 71.5, 347.147, 79.0264, 363.678, 90.3157, 367.81, 45.158, 400.872, 45.158, 417.403, 30.1052, 433.934, 30.1052, 471.128, 45.158, 491.791, 127.947, 491.791, 150.526, 450.464, 127.947, 442.199, 127.947, 417.403, 195.684, 421.536, 173.105, 471.128, 135.474, 500.057, 124.184, 520.72, 135.474, 549.649, 481.684, 549.649, 481.684, 528.986, 466.631, 512.455, 447.815, 504.19, 451.579, 466.995, 477.921, 442.199, 492.973, 409.137, 534.368, 376.076, 556.947, 392.607, 560.71, 322.351, 459.105, 347.147, 474.157, 285.156, 432.763, 301.687, 429, 243.829, 447.815, 219.033, 455.342, 231.431, 477.921, 157.043, 451.579, 128.114, 444.052, 181.839, 429, 194.237, 421.473, 177.706, 406.421, 210.768, 395.131, 210.768, 387.605, 185.972, 391.368, 144.645, 361.263, 24.7963, 346.21, 37.1942, 346.21, 140.512, 331.158, 132.246, 346.21, 198.37, 323.631, 260.36, 274.71, 309.953, 278.473, 268.626, 278.473, 268.626, 267.184, 264.493, 255.895, 140.512, 240.842, 152.91, 240.842, 219.033, 233.316, 276.891, 218.263, 334.749, 206.974, 343.014, 191.921, 359.545, 165.579, 338.881, 146.763, 247.962, 116.658, 181.839, 109.132, 74.3885, 97.842, 78.5214, 86.5525, 181.839, 71.5, 185.972, 79.0264, 219.033, 26.342, 173.573, 0, 115.716, 26.342, 74.3885, 7.52637, 66.1232, 7.52637, -12.3981, -11.2896, -16.5308)
+
 [node name="32" type="Sprite2D" parent="."]
-position = Vector2(281, 65)
+position = Vector2(308, 62)
 scale = Vector2(0.991667, 0.610656)
 texture = ExtResource("14_eoo3q")
 
@@ -106,18 +123,33 @@ position = Vector2(-60, 108.713)
 scale = Vector2(1.01695, 1.20792)
 texture = ExtResource("15_17hwl")
 
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="32/33"]
+position = Vector2(59, -90)
+scale = Vector2(0.983333, 0.827869)
+polygon = PackedVector2Array(-59.4958, 34.3893, -72.6051, 40.9396, -68.5715, 50.7651, -71.5967, 67.1409, -78.6555, 72.0537, -72.6051, 85.1544, -74.6219, 111.356, -70.5883, 116.268, -77.6471, 129.369, -68.5715, 147.383, -90.7563, 165.396, -74.6219, 183.409, -41.3446, 181.772, -41.3446, 176.859, -32.269, 162.121, -32.269, 152.295, -30.2521, 140.832, -37.311, 132.644, -35.2942, 114.631, -40.3362, 103.168, -34.2857, 91.7047, -39.3278, 83.5168, -37.311, 68.7785, -42.353, 50.7651, -47.395, 49.1275, -47.395, 40.9396)
+
 [node name="34" type="Sprite2D" parent="32"]
-position = Vector2(49.8305, 150.99)
+position = Vector2(52.437, 193.235)
 scale = Vector2(1.30508, 1.36634)
 texture = ExtResource("14_eoo3q")
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="32/34"]
+position = Vector2(-0.13681, 1.52588e-05)
+scale = Vector2(1.01366, 1.0014)
+polygon = PackedVector2Array(-2.01685, -60.5906, -13.1093, -50.7651, -23.1933, -31.1141, -18.1513, -19.651, -25.2101, -9.8255, -20.1681, -3.27517, -25.2101, 8.18792, -23.1933, 21.2886, -31.2605, 27.8389, -27.2269, 45.8523, -17.1429, 60.5906, 13.1092, 60.5906, 25.2101, 54.0403, 29.2437, 44.2148, 16.1344, 34.3893, 6.05038, 34.3893, 18.1512, 18.0134, 11.0924, 6.55034, 14.1176, 1.63759, 12.1008, -19.651, 16.1344, -29.4765, 9.07559, -32.7517, 12.1008, -44.2148, 10.084, -55.6778)
 
 [node name="35" type="Sprite2D" parent="32"]
 position = Vector2(98.6441, 48.3168)
 scale = Vector2(0.762712, 0.881188)
 texture = ExtResource("15_17hwl")
 
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="32/35"]
+position = Vector2(58.4089, -89.0507)
+scale = Vector2(0.983333, 0.826182)
+polygon = PackedVector2Array(-59.4958, 34.3893, -72.6051, 40.9396, -68.5715, 50.7651, -71.5967, 67.1409, -78.6555, 72.0537, -72.6051, 85.1544, -74.6219, 111.356, -70.5883, 116.268, -77.6471, 129.369, -68.5715, 147.383, -90.7563, 165.396, -74.6219, 183.409, -41.3446, 181.772, -41.3446, 176.859, -32.269, 162.121, -32.269, 152.295, -30.2521, 140.832, -37.311, 132.644, -35.2942, 114.631, -40.3362, 103.168, -34.2857, 91.7047, -39.3278, 83.5168, -37.311, 68.7785, -42.353, 50.7651, -47.395, 49.1275, -47.395, 40.9396)
+
 [node name="11" type="Sprite2D" parent="32"]
-position = Vector2(124.068, 136.495)
+position = Vector2(145.21, 132.644)
 scale = Vector2(0.817421, 1.02928)
 texture = ExtResource("16_jstub")
 
@@ -130,3 +162,37 @@ texture = ExtResource("17_2iyi1")
 position = Vector2(-79.322, -13.2871)
 scale = Vector2(0.688693, 0.842142)
 texture = ExtResource("16_jstub")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="32"]
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(-2.01685, -60.5906, -13.1093, -50.7651, -23.1933, -31.1141, -18.1513, -19.651, -25.2101, -9.8255, -20.1681, -3.27517, -25.2101, 8.18792, -23.1933, 21.2886, -31.2605, 27.8389, -27.2269, 45.8523, -17.1429, 60.5906, 13.1092, 60.5906, 25.2101, 54.0403, 29.2437, 44.2148, 16.1344, 34.3893, 6.05038, 34.3893, 18.1512, 18.0134, 11.0924, 6.55034, 14.1176, 1.63759, 12.1008, -19.651, 16.1344, -29.4765, 9.07559, -32.7517, 12.1008, -44.2148, 10.084, -55.6778)
+
+[node name="Cactus401" type="Sprite2D" parent="."]
+position = Vector2(563, 631)
+scale = Vector2(0.619048, 0.672414)
+texture = ExtResource("5_p70gq")
+
+[node name="Cactus402" type="Sprite2D" parent="Cactus401"]
+position = Vector2(-715.615, -304.872)
+scale = Vector2(0.961538, 1.20513)
+texture = ExtResource("5_p70gq")
+
+[node name="Cactus403" type="Sprite2D" parent="Cactus401"]
+position = Vector2(-848.077, -666.256)
+scale = Vector2(1.11538, 1)
+texture = ExtResource("5_p70gq")
+
+[node name="Cactus404" type="Sprite2D" parent="Cactus401"]
+position = Vector2(-58.1539, -542.821)
+scale = Vector2(1, 0.794872)
+texture = ExtResource("5_p70gq")
+
+[node name="Cactus405" type="Sprite2D" parent="Cactus401"]
+position = Vector2(798, -242.41)
+scale = Vector2(1.11538, 1.20513)
+texture = ExtResource("5_p70gq")
+
+[node name="Cactus406" type="Sprite2D" parent="Cactus401"]
+position = Vector2(397.385, -774.449)
+scale = Vector2(1.07692, 1.20513)
+texture = ExtResource("5_p70gq")

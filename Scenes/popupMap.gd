@@ -1,25 +1,11 @@
-extends Control
-
-
-func _on_jugar_pressed():
-	$MAP.popup()
-
-
-func _on_salir_pressed():
-	get_tree().quit()
-
-
-func _on_button_pressed():
-	$Popup.popup()
+extends Popup
 
 
 func _on_button_mouse_entered():
 	get_tree().get_nodes_in_group("Sonidos")[0].get_node("Click").play()
 
-
-func _on_jugar_mouse_entered():
+func _on_button_2_mouse_entered():
 	get_tree().get_nodes_in_group("Sonidos")[0].get_node("Click").play()
 
-
-func _on_salir_mouse_entered():
+func _on_button_3_mouse_entered():
 	get_tree().get_nodes_in_group("Sonidos")[0].get_node("Click").play()

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm3jum7vy8ab8"]
+
+[ext_resource type="Texture2D" uid="uid://bcurni6do8h1p" path="res://figures/snow_template1.jpg" id="1_ldkwv"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_ldkwv")

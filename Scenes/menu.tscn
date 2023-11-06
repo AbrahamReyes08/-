@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3vc7i7acbtxb"]
+[gd_scene load_steps=8 format=3 uid="uid://c3vc7i7acbtxb"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_uhuwb"]
 [ext_resource type="FontFile" uid="uid://c0c4myavfhko0" path="res://Fonts/ZeroCool.otf" id="2_jg4ew"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://lns0awibxvkj" path="res://Sounds/pulsaBoton.mp3" id="4_61aol"]
 [ext_resource type="AudioStream" uid="uid://mgi4bie4m78d" path="res://Sounds/interfazSonido.mp3" id="5_lklq2"]
 [ext_resource type="PackedScene" uid="uid://ecdkkp64u7mx" path="res://Scenes/popupSettings.tscn" id="6_dcbpp"]
+[ext_resource type="PackedScene" uid="uid://1dqe0g45rivi" path="res://Scenes/popupMap.tscn" id="7_1y8mg"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -70,6 +71,9 @@ autoplay = true
 bus = &"Music"
 
 [node name="Popup" parent="." instance=ExtResource("6_dcbpp")]
+visible = false
+
+[node name="MAP" parent="." instance=ExtResource("7_1y8mg")]
 visible = false
 
 [connection signal="mouse_entered" from="VBoxContainer/Jugar" to="." method="_on_jugar_mouse_entered"]
