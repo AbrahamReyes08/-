@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1jcpr01nhef5"]
+
+[ext_resource type="Script" path="res://Scripts/MovimientoEnem.gd" id="1_aqsok"]
+
+[node name="movimientoenem" type="Node"]
+script = ExtResource("1_aqsok")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpvke8rl1ed2m"]
+
+[ext_resource type="Script" path="res://Scripts/enemigo.gd" id="1_k40y0"]
+[ext_resource type="Texture2D" uid="uid://tc2dkkqmu53" path="res://Assets/enemigo prueba.png" id="2_xh4jf"]
+[ext_resource type="PackedScene" uid="uid://c1jcpr01nhef5" path="res://Adds/MovementScenes/movimientoenem.tscn" id="3_0pjuy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ndxs1"]
+height = 28.0
+
+[node name="enemigo" type="CharacterBody2D"]
+script = ExtResource("1_k40y0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ndxs1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xh4jf")
+
+[node name="MovimientoEnem" parent="." instance=ExtResource("3_0pjuy")]

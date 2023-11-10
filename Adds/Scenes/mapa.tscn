@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://3b4w7l45oejr"]
+
+[ext_resource type="Script" path="res://Scripts/mapa.gd" id="1_gukas"]
+[ext_resource type="Texture2D" uid="uid://b4uvsriu0y875" path="res://Assets/fondo.png" id="1_qccf1"]
+[ext_resource type="PackedScene" uid="uid://1pfrtj14ocsy" path="res://Adds/Scenes/personaje.tscn" id="2_6ynsy"]
+[ext_resource type="PackedScene" uid="uid://cpvke8rl1ed2m" path="res://Adds/Scenes/enemigo.tscn" id="3_8la6b"]
+
+[node name="Mapa" type="Node2D"]
+script = ExtResource("1_gukas")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(250, 142)
+scale = Vector2(0.390625, 0.397222)
+texture = ExtResource("1_qccf1")
+
+[node name="Personaje" parent="." instance=ExtResource("2_6ynsy")]
+position = Vector2(29, 27)
+
+[node name="Enemigo" parent="." instance=ExtResource("3_8la6b")]
+position = Vector2(119, 62)

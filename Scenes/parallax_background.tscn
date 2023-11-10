@@ -1,12 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://df6782cwru7"]
-
-[ext_resource type="Texture2D" uid="uid://yyus0nodwoy7" path="res://images/Untitled design (4) (1).png" id="1_24w38"]
+[gd_scene format=3 uid="uid://df6782cwru7"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
-position = Vector2(578, 324)
-scale = Vector2(0.958333, 0.815)
-texture = ExtResource("1_24w38")
+[node name="ColorRect" type="ColorRect" parent="ParallaxLayer"]
+offset_right = 1150.0
+offset_bottom = 647.0
+color = Color(0.207843, 0.207843, 0.207843, 1)
