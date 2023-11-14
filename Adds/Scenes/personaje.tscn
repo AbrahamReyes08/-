@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://1pfrtj14ocsy"]
+[gd_scene load_steps=18 format=3 uid="uid://1pfrtj14ocsy"]
 
 [ext_resource type="PackedScene" uid="uid://bkqd0ixaxta6c" path="res://Adds/MovementScenes/movimiento.tscn" id="1_2hqh2"]
 [ext_resource type="Texture2D" uid="uid://dx4ykml56kqps" path="res://Assets/jugador1.png" id="2_pxpaw"]
@@ -61,8 +61,8 @@ func get_animation_name(direction: Vector2) -> String:
 "
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jfvqr"]
-radius = 5.0
-height = 18.0
+radius = 4.0
+height = 14.0
 
 [sub_resource type="Animation" id="Animation_kk4t6"]
 resource_name = "GameOver"
@@ -95,6 +95,42 @@ tracks/0/keys = {
 "update": 1,
 "values": [36, 37, 38, 39]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitBox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HitBox/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-9, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitBox/CollisionShape2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_0506e"]
 resource_name = "HitSide"
@@ -111,6 +147,42 @@ tracks/0/keys = {
 "update": 1,
 "values": [42, 43, 44, 45]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitBox/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-6, 8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HitBox/CollisionShape2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.610865]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HurtBox/CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(4, 9), Vector2(1, 9), Vector2(1, 9)]
+}
 
 [sub_resource type="Animation" id="Animation_smc07"]
 resource_name = "HitUp"
@@ -126,6 +198,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [48, 49, 50, 51]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitBox/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6, -2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HitBox/CollisionShape2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_k0jd6"]
@@ -174,21 +270,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [12, 13, 14, 15, 16, 17]
-}
-
-[sub_resource type="Animation" id="Animation_aamtx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [49]
 }
 
 [sub_resource type="Animation" id="Animation_o1ior"]
@@ -248,17 +329,26 @@ _data = {
 "IdleDown": SubResource("Animation_k0jd6"),
 "IdleSide": SubResource("Animation_l7qia"),
 "IdleUp": SubResource("Animation_6s3ys"),
-"RESET": SubResource("Animation_aamtx"),
 "RunDown": SubResource("Animation_o1ior"),
 "RunSide": SubResource("Animation_4ltyk"),
 "RunUp": SubResource("Animation_yv8ko")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ooirl"]
+radius = 6.0
+height = 16.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0kasb"]
+radius = 7.0
+height = 24.0
+
 [node name="Personaje" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
 script = SubResource("GDScript_r7xs3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 8)
+position = Vector2(1, 9)
 shape = SubResource("CapsuleShape2D_jfvqr")
 
 [node name="Movimiento" parent="." instance=ExtResource("1_2hqh2")]
@@ -267,9 +357,32 @@ shape = SubResource("CapsuleShape2D_jfvqr")
 texture = ExtResource("2_pxpaw")
 hframes = 6
 vframes = 10
-frame = 49
+frame = 45
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_rqw1b")
 }
+
+[node name="HurtBox" type="Area2D" parent="."]
+modulate = Color(0.101961, 0.643137, 0.203922, 1)
+collision_layer = 2
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(1, 9)
+shape = SubResource("CapsuleShape2D_ooirl")
+
+[node name="HitBox" type="Area2D" parent="."]
+modulate = Color(0.996078, 0, 0.176471, 1)
+position = Vector2(1, 10)
+rotation = -1.5708
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(-6, 8)
+rotation = -0.610865
+shape = SubResource("CapsuleShape2D_0kasb")
+disabled = true
