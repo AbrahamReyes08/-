@@ -9,12 +9,13 @@
 script = ExtResource("1_gukas")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(250, 142)
+modulate = Color(0.462745, 0.462745, 0.462745, 1)
+position = Vector2(251, 144)
 scale = Vector2(0.390625, 0.397222)
 texture = ExtResource("1_qccf1")
 
 [node name="Personaje" parent="." instance=ExtResource("2_6ynsy")]
-position = Vector2(29, 27)
+position = Vector2(200, 106)
 
 [node name="Enemigo" parent="." instance=ExtResource("3_8la6b")]
-position = Vector2(119, 62)
+position = Vector2(330, 159)

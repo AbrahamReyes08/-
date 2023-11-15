@@ -12,7 +12,7 @@ func _on_button_3_mouse_entered():
 
 
 func _on_button_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Adds/Scenes/mapa.tscn")
 
 func _on_button_2_pressed():
 	get_tree().change_scene_to_file("res://Scenes/desertbackground.tscn")
