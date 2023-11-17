@@ -15,6 +15,8 @@ class_name Jugador
 var lastanim = \"Down\"
 var input_vector: Vector2
 var rotado = true
+var atacar = false
+var puedeatacar = true
 
 func _ready():
 	movimiento.setupPersonaje(self)
@@ -26,19 +28,36 @@ func _process(delta):
 func _physics_process(delta):
 	movimiento.moverse(input_vector.normalized())
 	move_and_view()
-		
+	if(Input.is_action_just_pressed(\"attack\") && puedeatacar):
+		atacar=true
 
 func move_and_view():
 	var posmouse = get_global_mouse_position()
 	var posplayer = self.global_position
 	var direction_to_mouse = (posmouse - posplayer).normalized()
+	lastanim = get_animation_name(direction_to_mouse)
+	if(get_animation_name(direction_to_mouse)==\"Side\"):
+		sprite.flip_h = direction_to_mouse.x < 0
 	if input_vector != Vector2.ZERO:
-		lastanim = get_animation_name(direction_to_mouse)
-		if(get_animation_name(direction_to_mouse)==\"Side\"):
-			sprite.flip_h = direction_to_mouse.x < 0
-		animPlayer.play(\"Run\"+lastanim)
+		if(!atacar):
+			animPlayer.play(\"Run\"+lastanim)
+		else:
+			if(puedeatacar):
+				puedeatacar=false
+				$CooldownAtaque.start()
+				animPlayer.play(\"Hit\"+lastanim)
+				await (animPlayer.animation_finished)
+				atacar=false
 	else:
-		animPlayer.play(\"Idle\"+lastanim)
+		if(!atacar):
+			animPlayer.play(\"Idle\"+lastanim)
+		else:
+			if(puedeatacar):
+				puedeatacar=false
+				$CooldownAtaque.start()
+				animPlayer.play(\"Hit\"+lastanim)
+				await (animPlayer.animation_finished)
+				atacar=false
 	
 
 func get_animation_name(direction: Vector2) -> String:
@@ -58,6 +77,8 @@ func get_animation_name(direction: Vector2) -> String:
 		return \"Side\"
 
 
+func _on_timer_timeout():
+	puedeatacar=true
 "
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jfvqr"]
@@ -414,3 +435,5 @@ disabled = true
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="CooldownAtaque" type="Timer" parent="."]
+
+[connection signal="timeout" from="CooldownAtaque" to="." method="_on_timer_timeout"]
