@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3wea57xtdnvr"
-path="res://.godot/imported/sand.png-8baf6a3ba7a15896c9e674cbe02e483a.ctex"
+uid="uid://bee5su0lfxprh"
+path="res://.godot/imported/Free-Sky-with-Clouds-Background-Pixel-Art6.jpg-5570e844f74a4830660e05d33618911b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imports/sand.png"
-dest_files=["res://.godot/imported/sand.png-8baf6a3ba7a15896c9e674cbe02e483a.ctex"]
+source_file="res://imports/Free-Sky-with-Clouds-Background-Pixel-Art6.jpg"
+dest_files=["res://.godot/imported/Free-Sky-with-Clouds-Background-Pixel-Art6.jpg-5570e844f74a4830660e05d33618911b.ctex"]
 
 [params]
 

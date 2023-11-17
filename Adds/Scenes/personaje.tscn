@@ -412,8 +412,3 @@ shape = SubResource("CapsuleShape2D_0kasb")
 disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="luces" type="PointLight2D" parent="."]
-position = Vector2(4.00001, 11.25)
-scale = Vector2(0.682813, 0.674306)
-shadow_enabled = true

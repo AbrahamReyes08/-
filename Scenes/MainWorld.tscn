@@ -1,13 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://hojrojsjyswg"]
+[gd_scene load_steps=31 format=3 uid="uid://hojrojsjyswg"]
 
 [ext_resource type="Script" path="res://Scripts/MainWorld.gd" id="1_8m17j"]
 [ext_resource type="Texture2D" uid="uid://g3rlr8ylqicx" path="res://imports/GrassBackground.png" id="1_u7lvf"]
+[ext_resource type="Texture2D" uid="uid://bee5su0lfxprh" path="res://imports/Free-Sky-with-Clouds-Background-Pixel-Art6.jpg" id="2_0wlor"]
 [ext_resource type="Texture2D" uid="uid://de1h5ki5fqkre" path="res://imports/DirtTileset.png" id="2_sm8oj"]
 [ext_resource type="Texture2D" uid="uid://cnxm2glmf5hn5" path="res://imports/CliffTileset.png" id="3_as3qa"]
 [ext_resource type="PackedScene" uid="uid://1pfrtj14ocsy" path="res://Adds/Scenes/personaje.tscn" id="5_cva4f"]
 [ext_resource type="PackedScene" uid="uid://cpvke8rl1ed2m" path="res://Adds/Scenes/enemigo.tscn" id="6_lpf0c"]
 [ext_resource type="Texture2D" uid="uid://drfpx38v8e7ng" path="res://imports/Tree.png" id="7_b3jpo"]
 [ext_resource type="Texture2D" uid="uid://5vb8vpj2ltbh" path="res://imports/Bush.png" id="8_7usbk"]
+[ext_resource type="Texture2D" uid="uid://b5vnrxvwyxssq" path="res://imports/fuenteDeAgua.png" id="10_hoy05"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7jpm"]
 texture = ExtResource("2_sm8oj")
@@ -207,10 +209,139 @@ texture = ExtResource("3_as3qa")
 sources/2 = SubResource("TileSetAtlasSource_r7jpm")
 sources/3 = SubResource("TileSetAtlasSource_m6dgd")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6d6gy"]
+atlas = ExtResource("10_hoy05")
+region = Rect2(0, 0, 44, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nj0ws"]
+atlas = ExtResource("10_hoy05")
+region = Rect2(44, 0, 44, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u10h1"]
+atlas = ExtResource("10_hoy05")
+region = Rect2(88, 0, 44, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hncdn"]
+atlas = ExtResource("10_hoy05")
+region = Rect2(132, 0, 44, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igo5y"]
+atlas = ExtResource("10_hoy05")
+region = Rect2(176, 0, 44, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khfgw"]
+atlas = ExtResource("10_hoy05")
+region = Rect2(220, 0, 44, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1c7k"]
+atlas = ExtResource("10_hoy05")
+region = Rect2(264, 0, 44, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qga6e"]
+atlas = ExtResource("10_hoy05")
+region = Rect2(308, 0, 44, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ikfn"]
+atlas = ExtResource("10_hoy05")
+region = Rect2(352, 0, 44, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hl2yo"]
+atlas = ExtResource("10_hoy05")
+region = Rect2(396, 0, 44, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_puj8w"]
+atlas = ExtResource("10_hoy05")
+region = Rect2(440, 0, 44, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k116g"]
+atlas = ExtResource("10_hoy05")
+region = Rect2(484, 0, 44, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hoblv"]
+atlas = ExtResource("10_hoy05")
+region = Rect2(528, 0, 44, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfyaa"]
+atlas = ExtResource("10_hoy05")
+region = Rect2(572, 0, 44, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyt6k"]
+atlas = ExtResource("10_hoy05")
+region = Rect2(616, 0, 44, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyj8l"]
+atlas = ExtResource("10_hoy05")
+region = Rect2(660, 0, 44, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j6ph5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6d6gy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nj0ws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u10h1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hncdn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igo5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khfgw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1c7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qga6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ikfn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hl2yo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_puj8w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k116g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hoblv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfyaa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tyt6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyj8l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="World" type="Node2D"]
 script = ExtResource("1_8m17j")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -319.0
+offset_top = -282.0
+offset_right = 1481.0
+offset_bottom = 918.0
+texture = ExtResource("2_0wlor")
+stretch_mode = 1
+
 [node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.803922, 0.803922, 0.803922, 1)
 texture_repeat = 2
 position = Vector2(2, 1)
 texture = ExtResource("1_u7lvf")
@@ -274,6 +405,11 @@ texture = ExtResource("7_b3jpo")
 position = Vector2(195, 400)
 texture = ExtResource("7_b3jpo")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(519, 325)
+scale = Vector2(1.25, 1.16667)
+sprite_frames = SubResource("SpriteFrames_j6ph5")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
@@ -326,3 +462,6 @@ polygon = PackedVector2Array(883, 326, 879, 326, 871, 333, 874, 335, 869, 338, 8
 [node name="CollisionPolygon2D16" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(-185, -222)
 polygon = PackedVector2Array(883, 326, 879, 326, 871, 333, 874, 335, 869, 338, 873, 341, 867, 349, 870, 353, 867, 357, 870, 359, 867, 363, 871, 365, 870, 368, 875, 367, 876, 371, 881, 369, 881, 373, 886, 372, 891, 372, 891, 368, 894, 368, 894, 369, 897, 369, 897, 366, 894, 365, 895, 363, 898, 364, 898, 360, 897, 358, 899, 358, 899, 355, 896, 353, 899, 350, 895, 342, 896, 338, 892, 335, 895, 333, 891, 330, 891, 328, 887, 327, 885, 325)
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(515, 301, 512, 304, 512, 308, 511, 309, 511, 313, 508, 314, 508, 319, 505, 319, 491, 326, 491, 342, 502, 349, 522, 350, 538, 348, 547, 343, 547, 326, 537, 320, 533, 320, 533, 318, 530, 318, 530, 315, 528, 313, 527, 309, 525, 305, 522, 301)
