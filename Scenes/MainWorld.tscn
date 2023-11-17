@@ -405,10 +405,11 @@ texture = ExtResource("7_b3jpo")
 position = Vector2(195, 400)
 texture = ExtResource("7_b3jpo")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(519, 325)
-scale = Vector2(1.25, 1.16667)
+[node name="fuente" type="AnimatedSprite2D" parent="."]
+position = Vector2(526.25, 330.5)
+scale = Vector2(1.57955, 1.35)
 sprite_frames = SubResource("SpriteFrames_j6ph5")
+frame_progress = 0.414728
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -464,4 +465,18 @@ position = Vector2(-185, -222)
 polygon = PackedVector2Array(883, 326, 879, 326, 871, 333, 874, 335, 869, 338, 873, 341, 867, 349, 870, 353, 867, 357, 870, 359, 867, 363, 871, 365, 870, 368, 875, 367, 876, 371, 881, 369, 881, 373, 886, 372, 891, 372, 891, 368, 894, 368, 894, 369, 897, 369, 897, 366, 894, 365, 895, 363, 898, 364, 898, 360, 897, 358, 899, 358, 899, 355, 896, 353, 899, 350, 895, 342, 896, 338, 892, 335, 895, 333, 891, 330, 891, 328, 887, 327, 885, 325)
 
 [node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(515, 301, 512, 304, 512, 308, 511, 309, 511, 313, 508, 314, 508, 319, 505, 319, 491, 326, 491, 342, 502, 349, 522, 350, 538, 348, 547, 343, 547, 326, 537, 320, 533, 320, 533, 318, 530, 318, 530, 315, 528, 313, 527, 309, 525, 305, 522, 301)
+position = Vector2(-91.0294, -41.2652)
+scale = Vector2(1.19196, 1.14413)
+polygon = PackedVector2Array(515, 301, 511.785, 303.518, 512, 308, 510.107, 307.888, 510.107, 313.133, 506.751, 314.007, 506.751, 319.251, 499.201, 320.125, 489.133, 327.117, 489.133, 341.975, 502, 349, 522, 350, 538, 348, 547, 343, 547, 326, 537, 320, 533, 320, 533, 318, 530, 318, 530, 315, 528, 313, 527, 309, 525, 305, 522, 301)
+
+[node name="Bush6" type="Sprite2D" parent="."]
+position = Vector2(329, 236)
+texture = ExtResource("8_7usbk")
+
+[node name="Bush8" type="Sprite2D" parent="."]
+position = Vector2(320, 250)
+texture = ExtResource("8_7usbk")
+
+[node name="Bush7" type="Sprite2D" parent="."]
+position = Vector2(340, 254)
+texture = ExtResource("8_7usbk")
