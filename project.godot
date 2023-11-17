@@ -26,7 +26,6 @@ GlobalSettings="*res://Scripts/Global_settings.gd"
 [display]
 
 window/stretch/mode="viewport"
-window/stretch/scale=3.0
 
 [input]
 

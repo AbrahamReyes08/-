@@ -8,7 +8,7 @@
 
 [node name="Popup" type="Popup"]
 position = Vector2i(70, 50)
-size = Vector2i(985, 515)
+size = Vector2i(980, 515)
 visible = true
 script = ExtResource("1_luqnv")
 
