@@ -412,3 +412,5 @@ shape = SubResource("CapsuleShape2D_0kasb")
 disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CooldownAtaque" type="Timer" parent="."]
