@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://hojrojsjyswg"]
+[gd_scene load_steps=30 format=3 uid="uid://hojrojsjyswg"]
 
 [ext_resource type="Script" path="res://Scripts/MainWorld.gd" id="1_8m17j"]
 [ext_resource type="Texture2D" uid="uid://g3rlr8ylqicx" path="res://imports/GrassBackground.png" id="1_u7lvf"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://de1h5ki5fqkre" path="res://imports/DirtTileset.png" id="2_sm8oj"]
 [ext_resource type="Texture2D" uid="uid://cnxm2glmf5hn5" path="res://imports/CliffTileset.png" id="3_as3qa"]
 [ext_resource type="PackedScene" uid="uid://1pfrtj14ocsy" path="res://Adds/Scenes/personaje.tscn" id="5_cva4f"]
-[ext_resource type="PackedScene" uid="uid://cpvke8rl1ed2m" path="res://Adds/Scenes/enemigo.tscn" id="6_lpf0c"]
 [ext_resource type="Texture2D" uid="uid://drfpx38v8e7ng" path="res://imports/Tree.png" id="7_b3jpo"]
 [ext_resource type="Texture2D" uid="uid://5vb8vpj2ltbh" path="res://imports/Bush.png" id="8_7usbk"]
 [ext_resource type="Texture2D" uid="uid://b5vnrxvwyxssq" path="res://imports/fuenteDeAgua.png" id="10_hoy05"]
@@ -390,9 +389,6 @@ texture = ExtResource("8_7usbk")
 [node name="Personaje" parent="." instance=ExtResource("5_cva4f")]
 position = Vector2(578, 325)
 
-[node name="Enemigo" parent="." instance=ExtResource("6_lpf0c")]
-position = Vector2(708, 378)
-
 [node name="Tree" type="Sprite2D" parent="."]
 position = Vector2(883, 349)
 texture = ExtResource("7_b3jpo")
@@ -480,3 +476,8 @@ polygon = PackedVector2Array(883, 326, 879, 326, 871, 333, 874, 335, 869, 338, 8
 position = Vector2(-91.0294, -41.2652)
 scale = Vector2(1.19196, 1.14413)
 polygon = PackedVector2Array(515, 301, 511.785, 303.518, 512, 308, 510.107, 307.888, 510.107, 313.133, 506.751, 314.007, 506.751, 319.251, 499.201, 320.125, 489.133, 327.117, 489.133, 341.975, 502, 349, 522, 350, 538, 348, 547, 343, 547, 326, 537, 320, 533, 320, 533, 318, 530, 318, 530, 315, 528, 313, 527, 309, 525, 305, 522, 301)
+
+[node name="EnemySpawn" type="Timer" parent="."]
+wait_time = 1.25
+
+[connection signal="timeout" from="EnemySpawn" to="." method="_on_enemy_spawn_timeout"]
