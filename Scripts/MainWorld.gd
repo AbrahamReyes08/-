@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var enemy = preload("res://Adds/Scenes/enemigo.tscn")
 @onready var personaje = $Personaje
+
 var maxenemy=25
 var cantenemy=0
 
@@ -37,3 +38,12 @@ func is_position_colliding(x, y):
 
 func _on_child_exiting_tree(enemy):
 	cantenemy-=1
+
+
+
+
+func _on_bushes_area_body_entered():
+	Engine.time_scale=0.4
+
+func _on_bushes_area_body_exited():
+	Engine.time_scale=1

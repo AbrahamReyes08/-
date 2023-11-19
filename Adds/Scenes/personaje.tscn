@@ -11,7 +11,7 @@ class_name Jugador
 @onready var movimiento: Movimiento = $\"Movimiento\" as Movimiento
 @onready var sprite = $\"Sprite2D\"
 @onready var animPlayer = $\"AnimationPlayer\"
-
+@onready var sui= $HurtBox
 
 var lastanim = \"Down\"
 var input_vector: Vector2
@@ -31,7 +31,7 @@ func _physics_process(delta):
 	move_and_view()
 	if(Input.is_action_just_pressed(\"attack\") && puedeatacar):
 		atacar=true
-	move_and_slide()
+	
 
 func move_and_view():
 	var posmouse = get_global_mouse_position()
@@ -82,9 +82,10 @@ func get_animation_name(direction: Vector2) -> String:
 	else:
 		return \"Side\"
 
-
 func _on_timer_timeout():
 	puedeatacar=true
+
+
 "
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jfvqr"]
@@ -408,7 +409,7 @@ shape = SubResource("CapsuleShape2D_jfvqr")
 texture = ExtResource("2_pxpaw")
 hframes = 6
 vframes = 10
-frame = 36
+frame = 54
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

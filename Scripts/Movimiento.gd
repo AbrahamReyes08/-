@@ -13,3 +13,4 @@ func moverse(inputvector: Vector2):
 
 func detenerse():
 	personaje.velocity=Vector2.ZERO
+
