@@ -39,11 +39,3 @@ func is_position_colliding(x, y):
 func _on_child_exiting_tree(enemy):
 	cantenemy-=1
 
-
-
-
-func _on_bushes_area_body_entered():
-	Engine.time_scale=0.4
-
-func _on_bushes_area_body_exited():
-	Engine.time_scale=1
