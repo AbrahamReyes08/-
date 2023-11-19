@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddpny2mmc6rpb"
-path="res://.godot/imported/15.png-d8e71bc9a6d557640c9716f8e367656f.ctex"
+uid="uid://ddsfden5o1t7y"
+path="res://.godot/imported/Cactus_Sprite_Sheet.png-1d1785ee0eb1b23280618686e189e065.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://desert/15.png"
-dest_files=["res://.godot/imported/15.png-d8e71bc9a6d557640c9716f8e367656f.ctex"]
+source_file="res://imports/Cactus_Sprite_Sheet.png"
+dest_files=["res://.godot/imported/Cactus_Sprite_Sheet.png-1d1785ee0eb1b23280618686e189e065.ctex"]
 
 [params]
 

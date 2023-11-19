@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctg3ytocfsf64"
-path="res://.godot/imported/25.png-1a88dfdedb886b0a05d0e9a1d2ae202c.ctex"
+uid="uid://d4esodps4gknt"
+path="res://.godot/imported/LightSprite.png-55646cba6eb2c4a1bf8ca6563c2f3366.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://desert/25.png"
-dest_files=["res://.godot/imported/25.png-1a88dfdedb886b0a05d0e9a1d2ae202c.ctex"]
+source_file="res://Deprecated/LightSprite.png"
+dest_files=["res://.godot/imported/LightSprite.png-55646cba6eb2c4a1bf8ca6563c2f3366.ctex"]
 
 [params]
 

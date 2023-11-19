@@ -31,6 +31,7 @@ func _physics_process(delta):
 	move_and_view()
 	if(Input.is_action_just_pressed(\"attack\") && puedeatacar):
 		atacar=true
+	move_and_slide()
 
 func move_and_view():
 	var posmouse = get_global_mouse_position()
