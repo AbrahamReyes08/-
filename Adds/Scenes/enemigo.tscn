@@ -1,19 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpvke8rl1ed2m"]
+[gd_scene load_steps=6 format=3 uid="uid://cpvke8rl1ed2m"]
 
 [ext_resource type="Script" path="res://Scripts/enemigo.gd" id="1_k40y0"]
 [ext_resource type="Texture2D" uid="uid://tc2dkkqmu53" path="res://Assets/enemigo prueba.png" id="2_xh4jf"]
 [ext_resource type="PackedScene" uid="uid://c1jcpr01nhef5" path="res://Adds/MovementScenes/movimientoenem.tscn" id="3_0pjuy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ndxs1"]
-height = 28.0
+radius = 8.0
+height = 22.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eyj88"]
+radius = 19.0
+height = 44.0
 
 [node name="enemigo" type="CharacterBody2D"]
 script = ExtResource("1_k40y0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_ndxs1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_xh4jf")
 
 [node name="MovimientoEnem" parent="." instance=ExtResource("3_0pjuy")]
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 26
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+modulate = Color(0.321569, 0.756863, 0.447059, 1)
+shape = SubResource("CapsuleShape2D_eyj88")
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

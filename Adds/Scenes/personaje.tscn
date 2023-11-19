@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://1pfrtj14ocsy"]
+[gd_scene load_steps=19 format=3 uid="uid://1pfrtj14ocsy"]
 
 [ext_resource type="PackedScene" uid="uid://bkqd0ixaxta6c" path="res://Adds/MovementScenes/movimiento.tscn" id="1_2hqh2"]
 [ext_resource type="Texture2D" uid="uid://dx4ykml56kqps" path="res://Assets/jugador1.png" id="2_pxpaw"]
+[ext_resource type="Script" path="res://Scripts/HitBox.gd" id="3_fhbup"]
 
 [sub_resource type="GDScript" id="GDScript_r7xs3"]
 script/source = "extends CharacterBody2D
@@ -38,6 +39,10 @@ func move_and_view():
 	lastanim = get_animation_name(direction_to_mouse)
 	if(get_animation_name(direction_to_mouse)==\"Side\"):
 		sprite.flip_h = direction_to_mouse.x < 0
+		if(direction_to_mouse.x<0):
+			$HitBox.scale.x=-1
+		else:
+			$HitBox.scale.x=1
 	if input_vector != Vector2.ZERO:
 		if(!atacar):
 			animPlayer.play(\"Run\"+lastanim)
@@ -178,7 +183,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-6, 8)]
+"values": [Vector2(-5, 10)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -384,8 +389,7 @@ radius = 6.0
 height = 16.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0kasb"]
-radius = 7.0
-height = 24.0
+height = 34.0
 
 [node name="Personaje" type="CharacterBody2D"]
 position = Vector2(1737, 979)
@@ -403,7 +407,7 @@ shape = SubResource("CapsuleShape2D_jfvqr")
 texture = ExtResource("2_pxpaw")
 hframes = 6
 vframes = 10
-frame = 54
+frame = 36
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -426,11 +430,11 @@ position = Vector2(1, 10)
 rotation = -1.5708
 collision_layer = 2
 collision_mask = 4
+script = ExtResource("3_fhbup")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(-9, 1)
 shape = SubResource("CapsuleShape2D_0kasb")
-disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

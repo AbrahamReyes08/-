@@ -480,4 +480,5 @@ polygon = PackedVector2Array(515, 301, 511.785, 303.518, 512, 308, 510.107, 307.
 [node name="EnemySpawn" type="Timer" parent="."]
 wait_time = 1.25
 
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="timeout" from="EnemySpawn" to="." method="_on_enemy_spawn_timeout"]

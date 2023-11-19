@@ -8,7 +8,7 @@ var cantenemy=0
 func _ready():
 	$EnemySpawn.start()
 	$fuente.play("default")
-	
+
 func _process(delta):
 	pass
 
@@ -25,7 +25,7 @@ func _on_enemy_spawn_timeout():
 		enemy_instance.set_target(personaje)
 		add_child(enemy_instance)
 		cantenemy+=1
-	
+
 func is_position_colliding(x, y):
 	var static_body = get_node("StaticBody2D")
 	var collision_shapes = static_body.get_children()
@@ -34,3 +34,6 @@ func is_position_colliding(x, y):
 			if shape.collide_point(Vector2(x, y)):
 				return true
 	return false
+
+func _on_child_exiting_tree(enemy):
+	cantenemy-=1
