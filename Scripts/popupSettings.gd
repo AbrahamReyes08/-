@@ -32,7 +32,5 @@ func _on_music_vol_mouse_entered():
 func _on_efectos_vol_mouse_entered():
 	get_tree().get_nodes_in_group("Sonidos")[0].get_node("Click").play()
 
-
-
 func _on_settings_tabs_tab_selected(tab):
 	get_tree().get_nodes_in_group("Sonidos")[0].get_node("Click").play()

@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://1dqe0g45rivi"]
 
-[ext_resource type="Texture2D" uid="uid://cm0v37sklob7h" path="res://MapsImages/mapVER.png" id="1_fj0yy"]
 [ext_resource type="Script" path="res://Scripts/popupMap.gd" id="1_luqnv"]
-[ext_resource type="Texture2D" uid="uid://cx7ygv6bm4wsi" path="res://MapsImages/mapDES.png" id="2_ik3hy"]
 [ext_resource type="Texture2D" uid="uid://drk7jmeagccp3" path="res://MapsImages/mapNie.png" id="3_8rtws"]
+[ext_resource type="Texture2D" uid="uid://daxd4u01ovs1r" path="res://MapsImages/bosque.png" id="3_khiyr"]
 [ext_resource type="FontFile" uid="uid://c0c4myavfhko0" path="res://Fonts/ZeroCool.otf" id="4_gn13d"]
+[ext_resource type="Texture2D" uid="uid://b6y68jxwa2oie" path="res://MapsImages/desierto.png" id="4_qdljb"]
 
 [node name="Popup" type="Popup"]
 position = Vector2i(85, 60)
@@ -69,12 +69,12 @@ theme_override_constants/separation = 31
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/imagesCont"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-texture = ExtResource("1_fj0yy")
+texture = ExtResource("3_khiyr")
 
 [node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/imagesCont"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-texture = ExtResource("2_ik3hy")
+texture = ExtResource("4_qdljb")
 
 [node name="TextureRect3" type="TextureRect" parent="MarginContainer/VBoxContainer/imagesCont"]
 custom_minimum_size = Vector2(250, 0)
