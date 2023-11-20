@@ -336,17 +336,16 @@ animations = [{
 script = ExtResource("1_8m17j")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -319.0
-offset_top = -282.0
-offset_right = 1481.0
-offset_bottom = 918.0
+offset_left = -643.0
+offset_top = -605.0
+offset_right = 1967.0
+offset_bottom = 1144.0
 texture = ExtResource("2_0wlor")
-stretch_mode = 1
 
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0.803922, 0.803922, 0.803922, 1)
 texture_repeat = 2
-position = Vector2(2, 1)
+position = Vector2(2, 0)
 texture = ExtResource("1_u7lvf")
 centered = false
 region_enabled = true
@@ -464,7 +463,8 @@ frame_progress = 0.414728
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(735, 64, 735, 18, 847, 18, 847, 50, 1038, 50, 1039, 130, 943, 131, 943, 162, 847, 162, 847, 192, 815, 192, 815, 145, 735, 145, 735, 97, 740, 97, 739, 130, 819, 130, 819, 179, 843, 178, 843, 146, 938, 146, 938, 114, 1034, 114, 1035, 55, 843, 55, 843, 23, 740, 23, 740, 65)
+position = Vector2(1, 3)
+polygon = PackedVector2Array(735, 64, 735, 18, 847, 18, 847, 50, 1038, 50, 1039, 130, 943, 131, 943, 162, 876.787, 162, 847, 162, 847, 192, 815, 192, 815, 145, 735, 145, 735, 97, 740, 97, 739, 130, 819, 130, 819, 179, 843, 178, 843, 146, 938, 146, 938, 114, 1034, 114, 1035, 55, 843, 55, 843, 23, 740, 23, 740, 65)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(298, 418, 298, 434, 244, 434, 244, 418, 228, 418, 228, 391, 345, 391, 345, 497, 228, 498, 228, 472, 313, 472, 313, 481, 320, 481, 320, 466, 224, 466, 223, 513, 351, 513, 351, 386, 224, 386, 223, 434, 238, 434, 238, 450, 303, 449, 303, 418)

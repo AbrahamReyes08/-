@@ -2,7 +2,7 @@ extends Control
 
 
 func _on_jugar_pressed():
-	$MAP.popup()
+	$Popup2.popup()
 
 
 func _on_salir_pressed():
