@@ -75,6 +75,7 @@ bus = &"Music"
 visible = false
 
 [node name="Popup2" parent="." instance=ExtResource("7_1y8mg")]
+position = Vector2i(70, 50)
 visible = false
 
 [connection signal="mouse_entered" from="VBoxContainer/Jugar" to="." method="_on_jugar_mouse_entered"]
