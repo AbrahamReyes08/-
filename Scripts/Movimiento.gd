@@ -1,7 +1,7 @@
 extends Node
 class_name Movimiento
 
-var speed = 95;
+var speed = 50;
 var personaje: CharacterBody2D
 
 func setupPersonaje(personaje: CharacterBody2D):

@@ -35,7 +35,8 @@ func selfdestroy():
 		await (animPlayer.animation_finished)
 		queue_free()
 
-func _on_hurt_box_area_entered(HitBox):
-	var damage=HitBox.damage
-	hp-=damage
+func _on_hurt_box_area_entered(HitBox: Area2D):
+		print("Enemigo recibio damage de "+str(HitBox.collision_layer)+" y fue "+str(HitBox.damage))
+		var damage=HitBox.damage
+		hp-=damage
 	

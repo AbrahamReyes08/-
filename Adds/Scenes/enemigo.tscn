@@ -101,7 +101,7 @@ frame = 32
 
 [node name="HurtBox" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 26
+collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 modulate = Color(0.321569, 0.756863, 0.447059, 1)

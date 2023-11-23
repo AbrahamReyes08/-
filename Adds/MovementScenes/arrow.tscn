@@ -1,0 +1,101 @@
+[gd_scene load_steps=11 format=3 uid="uid://bdyu13akwmumn"]
+
+[ext_resource type="Script" path="res://arrow.gd" id="1_4f0gs"]
+[ext_resource type="Texture2D" uid="uid://occ2s5j1dngq" path="res://Assets/flecha.png" id="2_ns30x"]
+[ext_resource type="Script" path="res://Adds/MovementScenes/HitBoxArrow.gd" id="3_mhjtu"]
+[ext_resource type="PackedScene" uid="uid://cu1rstmxxcj6a" path="res://Adds/MovementScenes/movimeintoflecha.tscn" id="3_plhua"]
+
+[sub_resource type="Animation" id="Animation_v0usw"]
+resource_name = "Fly"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 9, 8]
+}
+
+[sub_resource type="Animation" id="Animation_mvw22"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
+[sub_resource type="Animation" id="Animation_5wyoy"]
+resource_name = "Spawn"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jk76g"]
+_data = {
+"Fly": SubResource("Animation_v0usw"),
+"RESET": SubResource("Animation_mvw22"),
+"Spawn": SubResource("Animation_5wyoy")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q1o18"]
+radius = 11.3133
+height = 36.7926
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fpe2r"]
+
+[node name="Arrow" type="CharacterBody2D"]
+script = ExtResource("1_4f0gs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ns30x")
+hframes = 6
+vframes = 2
+frame = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jk76g")
+}
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("3_mhjtu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+rotation = -0.79405
+shape = SubResource("CapsuleShape2D_q1o18")
+
+[node name="FlyingTime" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="MovimientoFlecha" parent="." instance=ExtResource("3_plhua")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_fpe2r")
+disabled = true
+
+[connection signal="timeout" from="FlyingTime" to="." method="_on_timer_timeout"]

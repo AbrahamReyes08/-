@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var enemy = preload("res://Adds/Scenes/enemigo.tscn")
 @onready var personaje = $Personaje
+@onready var arrowthrower = $"ArrowThrower"
 
 var maxenemy=25
 var cantenemy=0
@@ -9,9 +10,10 @@ var cantenemy=0
 func _ready():
 	$EnemySpawn.start()
 	$fuente.play("default")
+	arrowthrower.set_player(personaje)
 
 func _process(delta):
-	pass
+	arrowthrower.position=personaje.position
 
 func _on_enemy_spawn_timeout():
 	if(cantenemy<maxenemy):
