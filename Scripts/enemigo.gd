@@ -28,6 +28,13 @@ func _physics_process(delta):
 			movimiento.detenerse()
 			selfdestroy()
 
+func knockback(damageSourcePos: Vector2, HitBox: Area2D):
+	if(HitBox.name=="HitBox"):
+		var knockbackDir = damageSourcePos.direction_to(self.global_position)
+		var knockback = knockbackDir*HitBox.knockback
+		animPlayer.play("Knockback")
+		global_position+=knockback
+		await (animPlayer.animation_finished)
 
 func selfdestroy():
 	if(hp<=0):
@@ -36,6 +43,9 @@ func selfdestroy():
 		queue_free()
 
 func _on_hurt_box_area_entered(HitBox: Area2D):
-		var damage=HitBox.damage
-		hp-=damage
+	var damageSourcePos = HitBox.global_position
+	knockback(damageSourcePos, HitBox)
+	animPlayer.play("Move")
+	var damage=HitBox.damage
+	hp-=damage
 	

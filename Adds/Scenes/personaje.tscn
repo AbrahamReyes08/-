@@ -12,8 +12,9 @@ class_name Jugador
 @onready var movimiento: Movimiento = $\"Movimiento\" as Movimiento
 @onready var sprite = $\"Sprite2D\"
 @onready var animPlayer = $\"AnimationPlayer\"
-@onready var sui= $HurtBox
 
+var hp = 100
+var cooldowntime = 1.25
 var lastanim = \"Down\"
 var input_vector: Vector2
 var rotado = true
@@ -42,9 +43,9 @@ func move_and_view():
 	if(get_animation_name(direction_to_mouse)==\"Side\"):
 		sprite.flip_h = direction_to_mouse.x < 0
 		if(direction_to_mouse.x<0):
-			$HitBox.scale.x=-1
+			$HitBox.scale.y=-1
 		else:
-			$HitBox.scale.x=1
+			$HitBox.scale.y=1
 	if input_vector != Vector2.ZERO:
 		if(!atacar):
 			animPlayer.play(\"Run\"+lastanim)
@@ -86,10 +87,24 @@ func get_animation_name(direction: Vector2) -> String:
 func _on_timer_timeout():
 	puedeatacar=true
 
-
 func _on_button_pressed():
 	$Popup.popup()
-	
+
+func _on_hurt_box_area_entered(HitBox: Area2D):
+	if(HitBox.name == \"HitBox\"):
+		var damage=HitBox.damage
+		hp-=damage
+		sprite.self_modulate.a = 0.75
+		$\"HurtBox\".disable_mode = true
+		$\"CooldownAtaque\".wait_time = 0.25
+		$Movimiento.speed = 75
+		$\"HitCooldown\".start()
+
+func _on_hit_cooldown_timeout():
+	sprite.self_modulate.a = 1
+	$Movimiento.speed = 50
+	$\"HurtBox\".disable_mode = false
+	$\"CooldownAtaque\".wait_time = cooldowntime
 "
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jfvqr"]
@@ -189,7 +204,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-5, 10)]
+"values": [Vector2(-4, 11)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -201,7 +216,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-0.610865]
+"values": [-0.698132]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -253,7 +268,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(6, -2)]
+"values": [Vector2(10, -2)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -395,7 +410,8 @@ radius = 6.0
 height = 16.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0kasb"]
-height = 34.0
+radius = 12.0
+height = 38.0
 
 [node name="Personaje" type="CharacterBody2D"]
 position = Vector2(1737, 979)
@@ -413,7 +429,7 @@ shape = SubResource("CapsuleShape2D_jfvqr")
 texture = ExtResource("2_pxpaw")
 hframes = 6
 vframes = 10
-frame = 36
+frame = 45
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -439,8 +455,10 @@ collision_mask = 4
 script = ExtResource("3_fhbup")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(-9, 1)
+position = Vector2(-4, 11)
+rotation = -0.698132
 shape = SubResource("CapsuleShape2D_0kasb")
+disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -451,9 +469,15 @@ offset_right = 566.0
 offset_bottom = -289.0
 
 [node name="CooldownAtaque" type="Timer" parent="."]
+wait_time = 1.25
 
 [node name="Popup" parent="." instance=ExtResource("4_itu7o")]
 visible = false
 
+[node name="HitCooldown" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="pressed" from="Camera2D/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="CooldownAtaque" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="HitCooldown" to="." method="_on_hit_cooldown_timeout"]
