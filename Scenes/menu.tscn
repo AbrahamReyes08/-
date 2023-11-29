@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3vc7i7acbtxb"]
+[gd_scene load_steps=9 format=3 uid="uid://c3vc7i7acbtxb"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_uhuwb"]
 [ext_resource type="FontFile" uid="uid://c0c4myavfhko0" path="res://Fonts/ZeroCool.otf" id="2_jg4ew"]
 [ext_resource type="PackedScene" uid="uid://df6782cwru7" path="res://Scenes/parallax_background.tscn" id="3_vlgqp"]
 [ext_resource type="AudioStream" uid="uid://lns0awibxvkj" path="res://Sounds/pulsaBoton.mp3" id="4_61aol"]
 [ext_resource type="AudioStream" uid="uid://mgi4bie4m78d" path="res://Sounds/interfazSonido.mp3" id="5_lklq2"]
+[ext_resource type="AudioStream" uid="uid://3smjlv48x1k1" path="res://Sounds/optime mapa.mp3" id="6_58aum"]
 [ext_resource type="PackedScene" uid="uid://ecdkkp64u7mx" path="res://Scenes/popupSettings.tscn" id="6_dcbpp"]
 [ext_resource type="PackedScene" uid="uid://1dqe0g45rivi" path="res://Scenes/popupMap.tscn" id="7_1y8mg"]
 
@@ -13,6 +14,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -315.0
+offset_bottom = 247.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uhuwb")
@@ -70,6 +73,10 @@ bus = &"SFX"
 stream = ExtResource("5_lklq2")
 autoplay = true
 bus = &"Music"
+
+[node name="SelectMap" type="AudioStreamPlayer2D" parent="Sonidos"]
+stream = ExtResource("6_58aum")
+bus = &"SFX"
 
 [node name="Popup" parent="." instance=ExtResource("6_dcbpp")]
 visible = false

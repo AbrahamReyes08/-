@@ -3,7 +3,10 @@ extends Node2D
 @onready var enemy = preload("res://Adds/Scenes/enemigo.tscn")
 @onready var personaje = $Personaje
 @onready var arrowthrower = $"ArrowThrower"
+@onready var pauseButton = $Personaje/PauseButton
 
+
+var pauseee=false
 var maxenemy=25
 var cantenemy=0
 
@@ -11,9 +14,13 @@ func _ready():
 	$EnemySpawn.start()
 	$fuente.play("default")
 	arrowthrower.set_player(personaje)
+	$Start.play()
 
 func _process(delta):
 	arrowthrower.position=personaje.position
+	
+	if Input.is_action_just_pressed("Pause"):
+		$Popup2.popup()
 
 func _on_enemy_spawn_timeout():
 	if(cantenemy<maxenemy):
@@ -41,3 +48,13 @@ func is_position_colliding(x, y):
 func _on_child_exiting_tree(enemy):
 	cantenemy-=1
 
+
+func _on_pause_button_pressed():
+	$Popup2.popup()
+	
+func _on_popup_2_visibility_changed():
+	if $Popup2.visible==true:
+		get_tree().paused = true
+	else:
+		get_tree().paused=false
+		

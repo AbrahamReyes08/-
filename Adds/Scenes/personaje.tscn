@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bkqd0ixaxta6c" path="res://Adds/MovementScenes/movimiento.tscn" id="1_2hqh2"]
 [ext_resource type="Texture2D" uid="uid://dx4ykml56kqps" path="res://Assets/jugador1.png" id="2_pxpaw"]
 [ext_resource type="Script" path="res://Scripts/HitBox.gd" id="3_fhbup"]
-[ext_resource type="PackedScene" uid="uid://ecdkkp64u7mx" path="res://Scenes/popupSettings.tscn" id="4_itu7o"]
+[ext_resource type="AudioStream" uid="uid://dbyo461725ygk" path="res://Sounds/punch-2-166695.mp3" id="4_vpmoh"]
 
 [sub_resource type="GDScript" id="GDScript_r7xs3"]
 script/source = "extends CharacterBody2D
@@ -54,6 +54,7 @@ func move_and_view():
 				puedeatacar=false
 				$CooldownAtaque.start()
 				animPlayer.play(\"Hit\"+lastanim)
+				$Effects/punch.play()
 				await (animPlayer.animation_finished)
 				atacar=false
 	else:
@@ -64,6 +65,7 @@ func move_and_view():
 				puedeatacar=false
 				$CooldownAtaque.start()
 				animPlayer.play(\"Hit\"+lastanim)
+				$Effects/punch.play()
 				await (animPlayer.animation_finished)
 				atacar=false
 	
@@ -87,9 +89,6 @@ func get_animation_name(direction: Vector2) -> String:
 func _on_timer_timeout():
 	puedeatacar=true
 
-func _on_button_pressed():
-	$Popup.popup()
-
 func _on_hurt_box_area_entered(HitBox: Area2D):
 	if(HitBox.name == \"HitBox\"):
 		var damage=HitBox.damage
@@ -97,12 +96,12 @@ func _on_hurt_box_area_entered(HitBox: Area2D):
 		sprite.self_modulate.a = 0.75
 		$\"HurtBox\".disable_mode = true
 		$\"CooldownAtaque\".wait_time = 0.25
-		$Movimiento.speed = 75
+		$Movimiento.speed = 110
 		$\"HitCooldown\".start()
 
 func _on_hit_cooldown_timeout():
 	sprite.self_modulate.a = 1
-	$Movimiento.speed = 50
+	$Movimiento.speed = 80
 	$\"HurtBox\".disable_mode = false
 	$\"CooldownAtaque\".wait_time = cooldowntime
 "
@@ -429,7 +428,7 @@ shape = SubResource("CapsuleShape2D_jfvqr")
 texture = ExtResource("2_pxpaw")
 hframes = 6
 vframes = 10
-frame = 45
+frame = 54
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -462,22 +461,18 @@ disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Button" type="Button" parent="Camera2D"]
-offset_left = 530.0
-offset_top = -317.0
-offset_right = 566.0
-offset_bottom = -289.0
-
 [node name="CooldownAtaque" type="Timer" parent="."]
 wait_time = 1.25
-
-[node name="Popup" parent="." instance=ExtResource("4_itu7o")]
-visible = false
 
 [node name="HitCooldown" type="Timer" parent="."]
 wait_time = 5.0
 
+[node name="Effects" type="Node2D" parent="."]
+
+[node name="punch" type="AudioStreamPlayer2D" parent="Effects"]
+stream = ExtResource("4_vpmoh")
+bus = &"SFX"
+
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
-[connection signal="pressed" from="Camera2D/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="CooldownAtaque" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="HitCooldown" to="." method="_on_hit_cooldown_timeout"]

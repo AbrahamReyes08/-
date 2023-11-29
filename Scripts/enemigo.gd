@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @onready var movimiento: MovimientoEnem = $"MovimientoEnem" as MovimientoEnem
 @onready var animPlayer = $"AnimationPlayer"
+@onready var burgerFalling=$burgerFalling
+
 var jugador
 var hp = 100
 var damage = 25
@@ -39,8 +41,11 @@ func knockback(damageSourcePos: Vector2, HitBox: Area2D):
 func selfdestroy():
 	if(hp<=0):
 		animPlayer.play("Death")
+		$Effect.play()
 		await (animPlayer.animation_finished)
 		queue_free()
+		
+
 
 func _on_hurt_box_area_entered(HitBox: Area2D):
 	var damageSourcePos = HitBox.global_position

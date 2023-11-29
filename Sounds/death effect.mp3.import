@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bag2exfu3orde"
+path="res://.godot/imported/death effect.mp3-fe9767a1152ce3496898ebae20d46097.mp3str"
+
+[deps]
+
+source_file="res://Sounds/death effect.mp3"
+dest_files=["res://.godot/imported/death effect.mp3-fe9767a1152ce3496898ebae20d46097.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

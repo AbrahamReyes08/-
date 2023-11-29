@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cpvke8rl1ed2m"]
+[gd_scene load_steps=15 format=3 uid="uid://cpvke8rl1ed2m"]
 
 [ext_resource type="Script" path="res://Scripts/enemigo.gd" id="1_k40y0"]
 [ext_resource type="Texture2D" uid="uid://bkf11yn0bypxn" path="res://Assets/burger.png" id="2_spyty"]
 [ext_resource type="PackedScene" uid="uid://c1jcpr01nhef5" path="res://Adds/MovementScenes/movimientoenem.tscn" id="3_0pjuy"]
 [ext_resource type="Script" path="res://Adds/Scenes/HitBoxEnem.gd" id="4_q73lm"]
+[ext_resource type="AudioStream" uid="uid://bag2exfu3orde" path="res://Sounds/death effect.mp3" id="5_4nf4r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ndxs1"]
 radius = 5.0
@@ -141,5 +142,9 @@ shape = SubResource("CapsuleShape2D_1xfaf")
 libraries = {
 "": SubResource("AnimationLibrary_dvbwv")
 }
+
+[node name="Effect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_4nf4r")
+bus = &"SFX"
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

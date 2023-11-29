@@ -344,6 +344,7 @@ sources/1 = SubResource("TileSetAtlasSource_3vf7s")
 sources/3 = SubResource("TileSetAtlasSource_uur42")
 
 [node name="DesertWorld" type="Node2D"]
+scale = Vector2(2.5, 2.5)
 script = ExtResource("1_siji5")
 
 [node name="TextureRect" type="TextureRect" parent="."]

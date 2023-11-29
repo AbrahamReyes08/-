@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://3smjlv48x1k1"
+path="res://.godot/imported/optime mapa.mp3-8bc3a505ab253c6f3ba7db91d7e37f34.mp3str"
+
+[deps]
+
+source_file="res://Sounds/optime mapa.mp3"
+dest_files=["res://.godot/imported/optime mapa.mp3-8bc3a505ab253c6f3ba7db91d7e37f34.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
