@@ -54,7 +54,12 @@ func _on_pause_button_pressed():
 	
 func _on_popup_2_visibility_changed():
 	if $Popup2.visible==true:
-		get_tree().paused = true
+		get_tree().paused =  true
 	else:
 		get_tree().paused=false
 		
+		
+
+
+func _on_salir_pressed():
+	get_tree().change_scene_to_file("res://Scenes/menu.tscn")

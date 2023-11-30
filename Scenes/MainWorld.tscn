@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://hojrojsjyswg"]
+[gd_scene load_steps=37 format=3 uid="uid://hojrojsjyswg"]
 
 [ext_resource type="Script" path="res://Scripts/MainWorld.gd" id="1_8m17j"]
 [ext_resource type="Texture2D" uid="uid://g3rlr8ylqicx" path="res://imports/GrassBackground.png" id="1_u7lvf"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://pyte6dejwilv" path="res://Scenes/pausePopup.tscn" id="11_bljsd"]
 [ext_resource type="AudioStream" uid="uid://3smjlv48x1k1" path="res://Sounds/optime mapa.mp3" id="12_vj42s"]
 [ext_resource type="AudioStream" uid="uid://chi8ianedfwie" path="res://Sounds/loop.mp3" id="13_3owdl"]
+[ext_resource type="Texture2D" uid="uid://dcvphr45xai4y" path="res://imports/pauseIcon.png" id="13_7axqv"]
+[ext_resource type="Texture2D" uid="uid://d1mf410ur836s" path="res://imports/exit icon.png" id="15_a1ev0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7jpm"]
 texture = ExtResource("2_sm8oj")
@@ -527,19 +529,22 @@ wait_time = 1.25
 
 [node name="ArrowThrower" parent="." instance=ExtResource("10_kphet")]
 
-[node name="Popup2" parent="." instance=ExtResource("11_bljsd")]
-visible = false
-
 [node name="Node" type="Node" parent="."]
 
 [node name="Personaje" parent="." instance=ExtResource("5_cva4f")]
 position = Vector2(578, 325)
 
 [node name="PauseButton" type="Button" parent="Personaje"]
-offset_left = 170.0
+offset_left = 173.0
 offset_top = -106.0
 offset_right = 190.0
 offset_bottom = -89.0
+
+[node name="Salir" type="Button" parent="Personaje"]
+offset_left = 173.333
+offset_top = -85.3333
+offset_right = 190.333
+offset_bottom = -68.3333
 
 [node name="Start" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_vj42s")
@@ -552,7 +557,20 @@ volume_db = 24.0
 autoplay = true
 bus = &"Music"
 
+[node name="PauseIcon" type="Sprite2D" parent="."]
+position = Vector2(759.334, 227.333)
+scale = Vector2(0.0233545, 0.02303)
+texture = ExtResource("13_7axqv")
+
+[node name="ExitIcon" type="Sprite2D" parent="."]
+position = Vector2(759, 248.667)
+scale = Vector2(0.0405077, 0.0341428)
+texture = ExtResource("15_a1ev0")
+
+[node name="Popup2" parent="." instance=ExtResource("11_bljsd")]
+visible = false
+
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="timeout" from="EnemySpawn" to="." method="_on_enemy_spawn_timeout"]
-[connection signal="visibility_changed" from="Popup2" to="." method="_on_popup_2_visibility_changed"]
 [connection signal="pressed" from="Personaje/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="Personaje/Salir" to="." method="_on_salir_pressed"]

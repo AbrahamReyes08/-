@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b44kaiyco5swk"
-path="res://.godot/imported/hambSprite.png-07afa67b6fa40d2c325a818fc8d23320.ctex"
+uid="uid://dcvphr45xai4y"
+path="res://.godot/imported/pauseIcon.png-8c97485cb3638210a4b0aba897077d62.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://hambSprite.png"
-dest_files=["res://.godot/imported/hambSprite.png-07afa67b6fa40d2c325a818fc8d23320.ctex"]
+source_file="res://imports/pauseIcon.png"
+dest_files=["res://.godot/imported/pauseIcon.png-8c97485cb3638210a4b0aba897077d62.ctex"]
 
 [params]
 
