@@ -23,3 +23,11 @@ func _on_jugar_mouse_entered():
 
 func _on_salir_mouse_entered():
 	get_tree().get_nodes_in_group("Sonidos")[0].get_node("Click").play()
+
+
+func _on_mejoras_pressed():
+	get_tree().change_scene_to_file("res://Scenes/MejorasMenu.tscn")
+
+
+func _on_mejoras_mouse_entered():
+	get_tree().get_nodes_in_group("Sonidos")[0].get_node("Click").play()

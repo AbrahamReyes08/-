@@ -14,8 +14,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -315.0
-offset_bottom = 247.0
+offset_right = 5.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uhuwb")
@@ -35,9 +35,9 @@ horizontal_alignment = 1
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 offset_left = 441.0
-offset_top = 294.0
+offset_top = 276.0
 offset_right = 707.0
-offset_bottom = 446.0
+offset_bottom = 474.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 10
@@ -53,6 +53,12 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_jg4ew")
 theme_override_font_sizes/font_size = 30
 text = "Ajustes"
+
+[node name="Mejoras" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_jg4ew")
+theme_override_font_sizes/font_size = 30
+text = "MEJORAS"
 
 [node name="Salir" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -89,5 +95,7 @@ visible = false
 [connection signal="pressed" from="VBoxContainer/Jugar" to="." method="_on_jugar_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/Ajustes" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Ajustes" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Mejoras" to="." method="_on_mejoras_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Mejoras" to="." method="_on_mejoras_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/Salir" to="." method="_on_salir_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_pressed"]

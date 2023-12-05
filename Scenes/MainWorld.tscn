@@ -574,3 +574,4 @@ visible = false
 [connection signal="timeout" from="EnemySpawn" to="." method="_on_enemy_spawn_timeout"]
 [connection signal="pressed" from="Personaje/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="Personaje/Salir" to="." method="_on_salir_pressed"]
+[connection signal="visibility_changed" from="Popup2" to="." method="_on_popup_2_visibility_changed"]

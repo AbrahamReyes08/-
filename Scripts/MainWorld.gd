@@ -20,7 +20,7 @@ func _process(delta):
 	arrowthrower.position=personaje.position
 	
 	if Input.is_action_just_pressed("Pause"):
-		$Popup2.popup()
+		$Popup2.visible=true
 
 func _on_enemy_spawn_timeout():
 	if(cantenemy<maxenemy):
@@ -50,16 +50,15 @@ func _on_child_exiting_tree(enemy):
 
 
 func _on_pause_button_pressed():
-	$Popup2.popup()
+	$Popup2.visible=true
 	
+
 func _on_popup_2_visibility_changed():
 	if $Popup2.visible==true:
-		get_tree().paused =  true
+		get_tree().paused=true
 	else:
 		get_tree().paused=false
 		
-		
-
 
 func _on_salir_pressed():
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
