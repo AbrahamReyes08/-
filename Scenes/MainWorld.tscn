@@ -524,6 +524,9 @@ texture = ExtResource("7_b3jpo")
 
 [node name="Node" type="Node" parent="."]
 
+[node name="EnemySpawn" type="Timer" parent="."]
+wait_time = 1.25
+
 [node name="Personaje" parent="." instance=ExtResource("5_cva4f")]
 position = Vector2(578, 325)
 
@@ -566,9 +569,6 @@ texture = ExtResource("13_owv08")
 region_enabled = true
 region_rect = Rect2(8, 0, 16, 16)
 
-[node name="EnemySpawn" type="Timer" parent="."]
-wait_time = 1.25
-
 [node name="Start" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_vj42s")
 volume_db = 24.0
@@ -590,7 +590,7 @@ sprite_frames = SubResource("SpriteFrames_j6ph5")
 frame_progress = 0.414728
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
+[connection signal="timeout" from="EnemySpawn" to="." method="_on_enemy_spawn_timeout"]
 [connection signal="pressed" from="Personaje/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="Personaje/Salir" to="." method="_on_salir_pressed"]
-[connection signal="timeout" from="EnemySpawn" to="." method="_on_enemy_spawn_timeout"]
 [connection signal="visibility_changed" from="Popup2" to="." method="_on_popup_2_visibility_changed"]
