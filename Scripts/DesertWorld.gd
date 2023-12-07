@@ -12,6 +12,8 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("Pause"):
 		$Popup2.popup()
+	
+	$Personaje/coin_number.text = var_to_str(player_data.coin)
 
 func _on_enemy_spawn_timeout():
 	if(cantenemy<maxenemy):

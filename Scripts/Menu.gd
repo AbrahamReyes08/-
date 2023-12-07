@@ -1,6 +1,5 @@
 extends Control
 
-
 func _on_jugar_pressed():
 	$Popup2.popup()
 

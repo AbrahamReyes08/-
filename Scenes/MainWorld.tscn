@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://hojrojsjyswg"]
+[gd_scene load_steps=39 format=3 uid="uid://hojrojsjyswg"]
 
 [ext_resource type="Script" path="res://Scripts/MainWorld.gd" id="1_8m17j"]
 [ext_resource type="Texture2D" uid="uid://g3rlr8ylqicx" path="res://imports/GrassBackground.png" id="1_u7lvf"]
@@ -14,7 +14,9 @@
 [ext_resource type="AudioStream" uid="uid://3smjlv48x1k1" path="res://Sounds/optime mapa.mp3" id="12_vj42s"]
 [ext_resource type="AudioStream" uid="uid://chi8ianedfwie" path="res://Sounds/loop.mp3" id="13_3owdl"]
 [ext_resource type="Texture2D" uid="uid://dcvphr45xai4y" path="res://imports/pauseIcon.png" id="13_7axqv"]
+[ext_resource type="Texture2D" uid="uid://c56vqgirh3gfd" path="res://Assets/burger cayendo.png" id="13_owv08"]
 [ext_resource type="Texture2D" uid="uid://d1mf410ur836s" path="res://imports/exit icon.png" id="15_a1ev0"]
+[ext_resource type="FontFile" uid="uid://c0c4myavfhko0" path="res://Fonts/ZeroCool.otf" id="15_fyg5r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7jpm"]
 texture = ExtResource("2_sm8oj")
@@ -434,36 +436,6 @@ shape = SubResource("CapsuleShape2D_6w20g")
 position = Vector2(1099, 605)
 shape = SubResource("CapsuleShape2D_6w20g")
 
-[node name="Tree" type="Sprite2D" parent="."]
-position = Vector2(883, 349)
-texture = ExtResource("7_b3jpo")
-
-[node name="Tree2" type="Sprite2D" parent="."]
-position = Vector2(73, 572)
-texture = ExtResource("7_b3jpo")
-
-[node name="Tree3" type="Sprite2D" parent="."]
-position = Vector2(399, 73)
-texture = ExtResource("7_b3jpo")
-
-[node name="Tree4" type="Sprite2D" parent="."]
-position = Vector2(726, 479)
-texture = ExtResource("7_b3jpo")
-
-[node name="Tree5" type="Sprite2D" parent="."]
-position = Vector2(698, 127)
-texture = ExtResource("7_b3jpo")
-
-[node name="Tree6" type="Sprite2D" parent="."]
-position = Vector2(195, 400)
-texture = ExtResource("7_b3jpo")
-
-[node name="fuente" type="AnimatedSprite2D" parent="."]
-position = Vector2(526.25, 330.5)
-scale = Vector2(1.57955, 1.35)
-sprite_frames = SubResource("SpriteFrames_j6ph5")
-frame_progress = 0.414728
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_mask = 0
 
@@ -524,8 +496,29 @@ position = Vector2(-91.0294, -41.2652)
 scale = Vector2(1.19196, 1.14413)
 polygon = PackedVector2Array(515, 301, 511.785, 303.518, 512, 308, 510.107, 307.888, 510.107, 313.133, 506.751, 314.007, 506.751, 319.251, 499.201, 320.125, 489.133, 327.117, 489.133, 341.975, 502, 349, 522, 350, 538, 348, 547, 343, 547, 326, 537, 320, 533, 320, 533, 318, 530, 318, 530, 315, 528, 313, 527, 309, 525, 305, 522, 301)
 
-[node name="EnemySpawn" type="Timer" parent="."]
-wait_time = 1.25
+[node name="Tree" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(883, 349)
+texture = ExtResource("7_b3jpo")
+
+[node name="Tree2" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(73, 572)
+texture = ExtResource("7_b3jpo")
+
+[node name="Tree3" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(399, 73)
+texture = ExtResource("7_b3jpo")
+
+[node name="Tree4" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(726, 479)
+texture = ExtResource("7_b3jpo")
+
+[node name="Tree5" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(698, 127)
+texture = ExtResource("7_b3jpo")
+
+[node name="Tree6" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(195, 400)
+texture = ExtResource("7_b3jpo")
 
 [node name="ArrowThrower" parent="." instance=ExtResource("10_kphet")]
 
@@ -556,6 +549,26 @@ position = Vector2(181, -76.333)
 scale = Vector2(0.0405077, 0.0341428)
 texture = ExtResource("15_a1ev0")
 
+[node name="coin_number" type="Label" parent="Personaje"]
+offset_left = -167.0
+offset_top = -104.667
+offset_right = -148.0
+offset_bottom = -65.6666
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("15_fyg5r")
+theme_override_font_sizes/font_size = 30
+text = "1"
+
+[node name="BurgerCayendo" type="Sprite2D" parent="Personaje"]
+position = Vector2(-176.458, -100.542)
+scale = Vector2(1.84896, 1.85938)
+texture = ExtResource("13_owv08")
+region_enabled = true
+region_rect = Rect2(8, 0, 16, 16)
+
+[node name="EnemySpawn" type="Timer" parent="."]
+wait_time = 1.25
+
 [node name="Start" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_vj42s")
 volume_db = 24.0
@@ -570,8 +583,14 @@ bus = &"Music"
 [node name="Popup2" parent="." instance=ExtResource("11_bljsd")]
 visible = false
 
+[node name="fuente" type="AnimatedSprite2D" parent="."]
+position = Vector2(526.25, 330.5)
+scale = Vector2(1.57955, 1.35)
+sprite_frames = SubResource("SpriteFrames_j6ph5")
+frame_progress = 0.414728
+
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
-[connection signal="timeout" from="EnemySpawn" to="." method="_on_enemy_spawn_timeout"]
 [connection signal="pressed" from="Personaje/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="Personaje/Salir" to="." method="_on_salir_pressed"]
+[connection signal="timeout" from="EnemySpawn" to="." method="_on_enemy_spawn_timeout"]
 [connection signal="visibility_changed" from="Popup2" to="." method="_on_popup_2_visibility_changed"]

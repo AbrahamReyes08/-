@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cu1rstmxxcj6a"]
 
-[ext_resource type="Script" path="res://MovimientoFlecha.gd" id="1_bsfux"]
+[ext_resource type="Script" path="res://Scripts/MovimientoFlecha.gd" id="1_bsfux"]
 
 [node name="movimeintoflecha" type="Node"]
 script = ExtResource("1_bsfux")
