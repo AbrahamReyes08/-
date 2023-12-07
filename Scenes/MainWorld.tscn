@@ -546,6 +546,16 @@ offset_top = -85.3333
 offset_right = 190.333
 offset_bottom = -68.3333
 
+[node name="PauseIcon" type="Sprite2D" parent="Personaje"]
+position = Vector2(181.334, -97.667)
+scale = Vector2(0.0233545, 0.02303)
+texture = ExtResource("13_7axqv")
+
+[node name="ExitIcon" type="Sprite2D" parent="Personaje"]
+position = Vector2(181, -76.333)
+scale = Vector2(0.0405077, 0.0341428)
+texture = ExtResource("15_a1ev0")
+
 [node name="Start" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_vj42s")
 volume_db = 24.0
@@ -556,16 +566,6 @@ stream = ExtResource("13_3owdl")
 volume_db = 24.0
 autoplay = true
 bus = &"Music"
-
-[node name="PauseIcon" type="Sprite2D" parent="."]
-position = Vector2(759.334, 227.333)
-scale = Vector2(0.0233545, 0.02303)
-texture = ExtResource("13_7axqv")
-
-[node name="ExitIcon" type="Sprite2D" parent="."]
-position = Vector2(759, 248.667)
-scale = Vector2(0.0405077, 0.0341428)
-texture = ExtResource("15_a1ev0")
 
 [node name="Popup2" parent="." instance=ExtResource("11_bljsd")]
 visible = false

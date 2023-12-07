@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=3 uid="uid://bf2nd1p6qpwv7"]
+
+[ext_resource type="Script" path="res://coin.gd" id="1_gvc60"]
+[ext_resource type="Texture2D" uid="uid://cph5fyelv0k7o" path="res://Assets/coin.png" id="2_ucvar"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ugrbb"]
+radius = 7.0
+
+[sub_resource type="Animation" id="Animation_42p0q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_38yfo"]
+resource_name = "active"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_2tblw"]
+resource_name = "sui"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g6vbt"]
+_data = {
+"RESET": SubResource("Animation_42p0q"),
+"active": SubResource("Animation_38yfo"),
+"sui": SubResource("Animation_2tblw")
+}
+
+[node name="coin" type="Area2D"]
+scale = Vector2(2.5, 2.5)
+script = ExtResource("1_gvc60")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.02282, -0.0754851)
+scale = Vector2(0.183714, 0.154591)
+texture = ExtResource("2_ucvar")
+hframes = 8
+frame = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.8, 0)
+shape = SubResource("CircleShape2D_ugrbb")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+autoplay = "active"
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_g6vbt")
+}
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crqe7e5sudfvc"
-path="res://.godot/imported/hambSp.png-7f72a2131eed715d418d2c4b120a495e.ctex"
+uid="uid://b22dx6lrqv7e0"
+path="res://.godot/imported/descarga__2_-removebg-preview.png-962851affcab5b593cfabe5f6df7d6d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/hambSp.png"
-dest_files=["res://.godot/imported/hambSp.png-7f72a2131eed715d418d2c4b120a495e.ctex"]
+source_file="res://imports/descarga__2_-removebg-preview.png"
+dest_files=["res://.godot/imported/descarga__2_-removebg-preview.png-962851affcab5b593cfabe5f6df7d6d2.ctex"]
 
 [params]
 

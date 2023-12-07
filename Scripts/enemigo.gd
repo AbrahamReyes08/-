@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var movimiento: MovimientoEnem = $"MovimientoEnem" as MovimientoEnem
 @onready var animPlayer = $"AnimationPlayer"
 @onready var burgerFalling=$burgerFalling
+@onready var coinLoot=preload("res://Scenes/coin.tscn")
 
 var jugador
 var hp = 100
@@ -43,6 +44,7 @@ func selfdestroy():
 		animPlayer.play("Death")
 		$Effect.play()
 		await (animPlayer.animation_finished)
+		loot_coin()
 		queue_free()
 		
 
@@ -54,3 +56,8 @@ func _on_hurt_box_area_entered(HitBox: Area2D):
 	var damage=HitBox.damage
 	hp-=damage
 	
+
+func loot_coin():
+	var coin=coinLoot.instantiate()
+	coin.global_position = global_position
+	get_tree().get_root().add_child(coin)
