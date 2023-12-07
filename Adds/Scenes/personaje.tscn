@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://1pfrtj14ocsy"]
+[gd_scene load_steps=21 format=3 uid="uid://1pfrtj14ocsy"]
 
 [ext_resource type="PackedScene" uid="uid://bkqd0ixaxta6c" path="res://Adds/MovementScenes/movimiento.tscn" id="1_2hqh2"]
 [ext_resource type="Texture2D" uid="uid://dx4ykml56kqps" path="res://Assets/jugador1.png" id="2_pxpaw"]
@@ -412,6 +412,9 @@ height = 16.0
 radius = 12.0
 height = 38.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_54myf"]
+radius = 4.0
+
 [node name="Personaje" type="CharacterBody2D"]
 position = Vector2(1737, 979)
 collision_layer = 2
@@ -472,6 +475,12 @@ wait_time = 5.0
 [node name="punch" type="AudioStreamPlayer2D" parent="Effects"]
 stream = ExtResource("4_vpmoh")
 bus = &"SFX"
+
+[node name="enterCoin" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enterCoin"]
+position = Vector2(2, 10)
+shape = SubResource("CircleShape2D_54myf")
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="timeout" from="CooldownAtaque" to="." method="_on_timer_timeout"]

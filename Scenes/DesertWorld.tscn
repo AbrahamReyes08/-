@@ -374,6 +374,13 @@ layer_0/tile_data = PackedInt32Array(655418, 3, 2, 524347, 262147, 0, 655426, 3,
 [node name="EnemySpawn" type="Timer" parent="."]
 wait_time = 1.25
 
+[node name="arbol" type="Sprite2D" parent="."]
+position = Vector2(550, 364.8)
+scale = Vector2(0.919118, 0.89375)
+texture = ExtResource("7_wc04t")
+region_enabled = true
+region_rect = Rect2(344, 456, 136, 24)
+
 [node name="Personaje" parent="." instance=ExtResource("8_8ov50")]
 position = Vector2(566, 327.6)
 
@@ -399,7 +406,15 @@ position = Vector2(8.35846, 8.36258)
 scale = Vector2(0.0405077, 0.0341428)
 texture = ExtResource("9_pct6j")
 
+[node name="arbol2" type="Sprite2D" parent="."]
+position = Vector2(549.2, 300)
+scale = Vector2(0.844778, 0.798789)
+texture = ExtResource("7_wc04t")
+region_enabled = true
+region_rect = Rect2(344, 320, 136, 136)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+scale = Vector2(1, 1)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(2, 0, 1149, 0, 1149, 656, -3, 656, -3, 5, 2, 5, 2, 640, 1143, 640, 1144, 6, 1144, 5, 2, 5)
@@ -643,14 +658,9 @@ position = Vector2(239, 258)
 polygon = PackedVector2Array(824, 298, 821, 300, 821, 308, 825, 313, 828, 313, 831, 308, 831, 300, 827, 297)
 
 [node name="CollisionPolygon2D21" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(517, 362, 517, 359, 526, 353, 526, 347, 534, 342, 534, 332, 539, 328, 539, 320, 535, 315, 557, 314, 559, 320, 560, 331, 559, 347, 573, 362)
-
-[node name="arbol" type="Sprite2D" parent="."]
-position = Vector2(551, 304)
-scale = Vector2(0.919118, 0.89375)
-texture = ExtResource("7_wc04t")
-region_enabled = true
-region_rect = Rect2(344, 320, 136, 160)
+position = Vector2(-0.000183105, 1.96048)
+scale = Vector2(1, 0.994792)
+polygon = PackedVector2Array(517, 362, 517, 359, 526, 353, 526, 347, 534, 342, 534, 333.778, 536.8, 333.376, 541.6, 332.974, 547.2, 332.572, 550, 332.974, 552.8, 332.572, 555.2, 333.6, 559, 347, 573, 362)
 
 [node name="Popup2" parent="." instance=ExtResource("12_6kytb")]
 visible = false
