@@ -1,7 +1,7 @@
 extends Node
 class_name MovimientoFlecha
 
-var speed = 375;
+var speed = 700;
 var flecha: CharacterBody2D
 
 func setup(flecha: CharacterBody2D):

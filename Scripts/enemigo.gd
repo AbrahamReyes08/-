@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 @onready var movimiento: MovimientoEnem = $"MovimientoEnem" as MovimientoEnem
 @onready var animPlayer = $"AnimationPlayer"
-@onready var burgerFalling=$burgerFalling
 @onready var coinLoot=preload("res://Scenes/coin.tscn")
 
 var jugador
@@ -21,26 +20,29 @@ func set_target(jugador):
 func _physics_process(delta):
 	var posicion = jugador.position
 	var direccion = posicion - self.position
-	movimiento.moverse(direccion.normalized())
-	$Sprite2D.flip_h = direccion.x<0
-	if(hp>0):
+	if(hp>0 ):
+		movimiento.moverse(direccion.normalized())
+		$Sprite2D.flip_h = direccion.x<0
 		animPlayer.play("Move")
 	else:
+		$HitBox.disable_mode=true
+		$HurtBox.disable_mode=true
+		movimiento.detenerse()
 		if(!muerto):
 			muerto=true
-			movimiento.detenerse()
 			selfdestroy()
 
 func knockback(damageSourcePos: Vector2, HitBox: Area2D):
-	if(HitBox.name=="HitBox"):
-		var knockbackDir = damageSourcePos.direction_to(self.global_position)
-		var knockback = knockbackDir*HitBox.knockback
-		animPlayer.play("Knockback")
-		global_position+=knockback
-		await (animPlayer.animation_finished)
+	if(!muerto):
+		if(HitBox.name=="HitBox"):
+			var knockbackDir = damageSourcePos.direction_to(self.global_position)
+			var knockback = knockbackDir*HitBox.knockback
+			animPlayer.play("Knockback")
+			global_position+=knockback
+			await (animPlayer.animation_finished)
 
 func selfdestroy():
-	if(hp<=0):
+	if(muerto):
 		animPlayer.play("Death")
 		$Effect.play()
 		await (animPlayer.animation_finished)
@@ -50,11 +52,12 @@ func selfdestroy():
 
 
 func _on_hurt_box_area_entered(HitBox: Area2D):
-	var damageSourcePos = HitBox.global_position
-	knockback(damageSourcePos, HitBox)
-	animPlayer.play("Move")
-	var damage=HitBox.damage
-	hp-=damage
+	if(hp>0):
+		var damageSourcePos = HitBox.global_position
+		knockback(damageSourcePos, HitBox)
+		animPlayer.play("Move")
+		var damage=HitBox.damage
+		hp-=damage
 	
 
 func loot_coin():

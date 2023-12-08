@@ -14,6 +14,10 @@ class_name Jugador
 @onready var animPlayer = $\"AnimationPlayer\"
 
 var hp = 100
+@onready var mod = sprite.modulate
+var maxhp = 100
+var xp = 0
+var nextxp = 10
 var cooldowntime = 1.25
 var lastanim = \"Down\"
 var input_vector: Vector2
@@ -27,6 +31,14 @@ func _ready():
 func _process(delta):
 	input_vector.x = Input.get_axis(\"move_left\", \"move_right\")
 	input_vector.y = Input.get_axis(\"move_up\", \"move_down\")
+	if(Input.is_action_just_pressed(\"Dash\") && $DashCooldown.is_stopped()):
+		sprite.self_modulate.a = 0.75
+		$CollisionShape2D.disabled = true
+		$HurtBox/CollisionShape2D.disabled = true
+		movimiento.speed = 1000
+		$DashCooldown.start()
+		$DashTimer.start()
+	_level_up()
 
 func _physics_process(delta):
 	movimiento.moverse(input_vector.normalized())
@@ -90,20 +102,40 @@ func _on_timer_timeout():
 	puedeatacar=true
 
 func _on_hurt_box_area_entered(HitBox: Area2D):
-	if(HitBox.name == \"HitBox\"):
+	if(HitBox.name == \"HitBox\" && $HitCooldown.is_stopped()):
 		var damage=HitBox.damage
 		hp-=damage
-		sprite.self_modulate.a = 0.75
-		$\"HurtBox\".disable_mode = true
+		sprite.self_modulate.a = 0.5
 		$\"CooldownAtaque\".wait_time = 0.25
-		$Movimiento.speed = 110
+		$Movimiento.speed = 155
 		$\"HitCooldown\".start()
 
 func _on_hit_cooldown_timeout():
 	sprite.self_modulate.a = 1
-	$Movimiento.speed = 80
-	$\"HurtBox\".disable_mode = false
+	$Movimiento.speed = 125
 	$\"CooldownAtaque\".wait_time = cooldowntime
+	$HitCooldown.stop()
+
+func _level_up():
+	if(xp==nextxp):
+		
+		xp=0
+		nextxp+=5
+
+
+func _on_dash_timer_timeout():
+	if($HitCooldown.is_stopped()):
+		sprite.self_modulate.a = 1
+		movimiento.speed = 125
+	else:
+		movimiento.speed = 155
+	$HurtBox/CollisionShape2D.disabled = false
+	$CollisionShape2D.disabled = false
+	
+
+
+func _on_dash_cooldown_timeout():
+	$DashCooldown.stop()
 "
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jfvqr"]
@@ -482,6 +514,14 @@ bus = &"SFX"
 position = Vector2(2, 10)
 shape = SubResource("CircleShape2D_54myf")
 
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 0.175
+
+[node name="DashCooldown" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="timeout" from="CooldownAtaque" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="HitCooldown" to="." method="_on_hit_cooldown_timeout"]
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]

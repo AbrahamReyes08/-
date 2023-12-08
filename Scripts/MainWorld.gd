@@ -11,18 +11,31 @@ var maxenemy=25
 var cantenemy=0
 
 func _ready():
+	$Personaje/BarraSalud.z_index = 10
+	$Personaje/Playerface.z_index = 10
+	$Personaje/BarraXP.z_index = 10
+	$Personaje/HPLbl.z_index = 10
+	$Personaje/TitleHPLbl.z_index = 10
+	$Personaje/XPTexturaBack.z_index = 10
+	$Personaje/DamageLbl.z_index = 10
+	$Personaje/Espada.z_index = 10
 	$EnemySpawn.start()
 	$fuente.play("default")
 	arrowthrower.set_player(personaje)
 	$Start.play()
 
 func _process(delta):
+	$Personaje/BarraSalud/BarraSaludTextura.value = personaje.hp
+	$Personaje/HPLbl.text = str(personaje.hp)+"/"+str(personaje.maxhp)
+	$Personaje/DamageLbl.text = str(personaje.get_node("HitBox").damage)
 	arrowthrower.position=personaje.position
 	
 	if Input.is_action_just_pressed("Pause"):
 		$Popup2.visible=true
 	
-	$Personaje/coin_number.text = var_to_str(player_data.coin)
+	$Personaje/XPTexturaBack.self_modulate.a = 0.5
+	$Personaje/BarraXP/XPTextura.max_value = personaje.nextxp
+	$Personaje/BarraXP/XPTextura.value = personaje.xp
 
 func _on_enemy_spawn_timeout():
 	if(cantenemy<maxenemy):

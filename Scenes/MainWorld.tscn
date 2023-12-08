@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://hojrojsjyswg"]
+[gd_scene load_steps=43 format=3 uid="uid://hojrojsjyswg"]
 
 [ext_resource type="Script" path="res://Scripts/MainWorld.gd" id="1_8m17j"]
 [ext_resource type="Texture2D" uid="uid://g3rlr8ylqicx" path="res://imports/GrassBackground.png" id="1_u7lvf"]
@@ -14,9 +14,13 @@
 [ext_resource type="AudioStream" uid="uid://3smjlv48x1k1" path="res://Sounds/optime mapa.mp3" id="12_vj42s"]
 [ext_resource type="AudioStream" uid="uid://chi8ianedfwie" path="res://Sounds/loop.mp3" id="13_3owdl"]
 [ext_resource type="Texture2D" uid="uid://dcvphr45xai4y" path="res://imports/pauseIcon.png" id="13_7axqv"]
-[ext_resource type="Texture2D" uid="uid://c56vqgirh3gfd" path="res://Assets/burger cayendo.png" id="13_owv08"]
+[ext_resource type="Texture2D" uid="uid://jks0ufh4xsx6" path="res://Assets/playerface.jpg" id="14_7bnfa"]
+[ext_resource type="Texture2D" uid="uid://dgefokw1x05sr" path="res://Assets/barraxp.png" id="15_1pgui"]
 [ext_resource type="Texture2D" uid="uid://d1mf410ur836s" path="res://imports/exit icon.png" id="15_a1ev0"]
-[ext_resource type="FontFile" uid="uid://c0c4myavfhko0" path="res://Fonts/ZeroCool.otf" id="15_fyg5r"]
+[ext_resource type="Texture2D" uid="uid://u1n68u8smgi3" path="res://Assets/barrahp.png" id="15_d73yj"]
+[ext_resource type="Texture2D" uid="uid://vo0li6ql1vdi" path="res://Assets/barrahpfill.png" id="16_lr586"]
+[ext_resource type="Texture2D" uid="uid://bnnljjevkd5m2" path="res://Assets/barraxpfill.png" id="16_r21lw"]
+[ext_resource type="Texture2D" uid="uid://di4tndelyn76i" path="res://Assets/miniespada.png" id="17_4troc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7jpm"]
 texture = ExtResource("2_sm8oj")
@@ -532,42 +536,87 @@ position = Vector2(578, 325)
 
 [node name="PauseButton" type="Button" parent="Personaje"]
 offset_left = 173.0
-offset_top = -106.0
+offset_top = -100.333
 offset_right = 190.0
-offset_bottom = -89.0
+offset_bottom = -83.3333
 
 [node name="Salir" type="Button" parent="Personaje"]
-offset_left = 173.333
-offset_top = -85.3333
-offset_right = 190.333
-offset_bottom = -68.3333
+offset_left = 151.0
+offset_top = -100.333
+offset_right = 168.0
+offset_bottom = -83.3333
 
 [node name="PauseIcon" type="Sprite2D" parent="Personaje"]
-position = Vector2(181.334, -97.667)
+position = Vector2(181.667, -91.3333)
 scale = Vector2(0.0233545, 0.02303)
 texture = ExtResource("13_7axqv")
 
 [node name="ExitIcon" type="Sprite2D" parent="Personaje"]
-position = Vector2(181, -76.333)
+position = Vector2(159.333, -92)
 scale = Vector2(0.0405077, 0.0341428)
 texture = ExtResource("15_a1ev0")
 
-[node name="coin_number" type="Label" parent="Personaje"]
-offset_left = -167.0
-offset_top = -104.667
-offset_right = -148.0
-offset_bottom = -65.6666
-scale = Vector2(0.5, 0.5)
-theme_override_fonts/font = ExtResource("15_fyg5r")
-theme_override_font_sizes/font_size = 30
-text = "1"
+[node name="Playerface" type="Sprite2D" parent="Personaje"]
+position = Vector2(-170, -82)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("14_7bnfa")
 
-[node name="BurgerCayendo" type="Sprite2D" parent="Personaje"]
-position = Vector2(-176.458, -100.542)
-scale = Vector2(1.84896, 1.85938)
-texture = ExtResource("13_owv08")
-region_enabled = true
-region_rect = Rect2(8, 0, 16, 16)
+[node name="BarraSalud" type="HBoxContainer" parent="Personaje"]
+offset_left = -149.667
+offset_top = -105.333
+offset_right = -45.6667
+offset_bottom = -79.3333
+
+[node name="BarraSaludTextura" type="TextureProgressBar" parent="Personaje/BarraSalud"]
+layout_mode = 2
+value = 100.0
+texture_under = ExtResource("15_d73yj")
+texture_progress = ExtResource("16_lr586")
+
+[node name="TitleHPLbl" type="Label" parent="Personaje"]
+offset_left = -146.667
+offset_top = -81.3333
+offset_right = -126.667
+offset_bottom = -61.3333
+theme_override_font_sizes/font_size = 12
+text = "HP"
+
+[node name="HPLbl" type="Label" parent="Personaje"]
+offset_left = -128.333
+offset_top = -81.3333
+offset_right = -82.3333
+offset_bottom = -58.3333
+theme_override_font_sizes/font_size = 12
+text = "100/100
+"
+
+[node name="BarraXP" type="HBoxContainer" parent="Personaje"]
+offset_left = -192.0
+offset_top = -108.0
+offset_right = 192.0
+offset_bottom = -102.0
+
+[node name="XPTextura" type="TextureProgressBar" parent="Personaje/BarraXP"]
+layout_mode = 2
+texture_under = ExtResource("15_1pgui")
+texture_progress = ExtResource("16_r21lw")
+
+[node name="XPTexturaBack" type="Sprite2D" parent="Personaje"]
+position = Vector2(2.98023e-08, -105)
+texture = ExtResource("16_r21lw")
+
+[node name="Espada" type="Sprite2D" parent="Personaje"]
+position = Vector2(-73, -72.3333)
+texture = ExtResource("17_4troc")
+
+[node name="DamageLbl" type="Label" parent="Personaje"]
+offset_left = -66.0
+offset_top = -81.3333
+offset_right = -52.0
+offset_bottom = -64.3333
+theme_override_font_sizes/font_size = 12
+text = "10
+"
 
 [node name="Start" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_vj42s")

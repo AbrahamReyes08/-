@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://15joyi1duh4k"]
+
+[node name="Interfaz" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -190.667
+offset_top = 66.0
+offset_right = -150.667
+offset_bottom = 106.0
+size_flags_vertical = 8

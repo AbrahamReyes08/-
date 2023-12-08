@@ -10,6 +10,7 @@ var direccion: Vector2
 
 func _ready():
 	sprite.rotate(deg_to_rad(135.0))
+	$HitBox.rotate(deg_to_rad(135.0))
 	sprite.frame_coords = Vector2(1, 0)
 	sprite.scale = Vector2(0.8, 0.8)
 	movimiento.setup(self)
@@ -33,6 +34,7 @@ func _physics_process(delta):
 
 func point_at_target(direccion):
 	var angulo = atan2(direccion.y, direccion.x)
+	$HitBox.rotate(angulo)
 	sprite.rotate(angulo)
 
 func selfdestroy():
