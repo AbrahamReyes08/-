@@ -1,4 +1,4 @@
-extends Control
+extends Window
 
 func _ready():
 	$AnimatedSprite2D.play("IDLE")

@@ -12,9 +12,9 @@ class_name Jugador
 @onready var movimiento: Movimiento = $\"Movimiento\" as Movimiento
 @onready var sprite = $\"Sprite2D\"
 @onready var animPlayer = $\"AnimationPlayer\"
+@onready var mod = sprite.modulate
 
 var hp = 100
-@onready var mod = sprite.modulate
 var maxhp = 100
 var xp = 0
 var nextxp = 10
@@ -118,7 +118,6 @@ func _on_hit_cooldown_timeout():
 
 func _level_up():
 	if(xp==nextxp):
-		
 		xp=0
 		nextxp+=5
 
@@ -131,7 +130,6 @@ func _on_dash_timer_timeout():
 		movimiento.speed = 155
 	$HurtBox/CollisionShape2D.disabled = false
 	$CollisionShape2D.disabled = false
-	
 
 
 func _on_dash_cooldown_timeout():

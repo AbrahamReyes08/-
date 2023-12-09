@@ -23,6 +23,8 @@ func _ready():
 	$fuente.play("default")
 	arrowthrower.set_player(personaje)
 	$Start.play()
+	
+
 
 func _process(delta):
 	$Personaje/BarraSalud/BarraSaludTextura.value = personaje.hp
@@ -36,6 +38,11 @@ func _process(delta):
 	$Personaje/XPTexturaBack.self_modulate.a = 0.5
 	$Personaje/BarraXP/XPTextura.max_value = personaje.nextxp
 	$Personaje/BarraXP/XPTextura.value = personaje.xp
+	
+	if(personaje.xp==personaje.nextxp):
+		get_tree().paused=true
+		$Mejoraswindow.popup()
+
 
 func _on_enemy_spawn_timeout():
 	if(cantenemy<maxenemy):

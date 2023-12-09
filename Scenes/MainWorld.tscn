@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://hojrojsjyswg"]
+[gd_scene load_steps=44 format=3 uid="uid://hojrojsjyswg"]
 
 [ext_resource type="Script" path="res://Scripts/MainWorld.gd" id="1_8m17j"]
 [ext_resource type="Texture2D" uid="uid://g3rlr8ylqicx" path="res://imports/GrassBackground.png" id="1_u7lvf"]
@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b5vnrxvwyxssq" path="res://imports/fuenteDeAgua.png" id="10_hoy05"]
 [ext_resource type="PackedScene" uid="uid://bcbl7ac53rpn" path="res://Adds/Scenes/arrow_thrower.tscn" id="10_kphet"]
 [ext_resource type="PackedScene" uid="uid://pyte6dejwilv" path="res://Scenes/pausePopup.tscn" id="11_bljsd"]
-[ext_resource type="Texture2D" uid="uid://c01hcnmepfcjo" path="res://Assets/User_Icon.png" id="12_4ynro"]
+[ext_resource type="Texture2D" uid="uid://jks0ufh4xsx6" path="res://Assets/playerface.jpg" id="12_52g71"]
 [ext_resource type="AudioStream" uid="uid://3smjlv48x1k1" path="res://Sounds/optime mapa.mp3" id="12_vj42s"]
 [ext_resource type="AudioStream" uid="uid://chi8ianedfwie" path="res://Sounds/loop.mp3" id="13_3owdl"]
 [ext_resource type="Texture2D" uid="uid://dcvphr45xai4y" path="res://imports/pauseIcon.png" id="13_7axqv"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://vo0li6ql1vdi" path="res://Assets/barrahpfill.png" id="16_lr586"]
 [ext_resource type="Texture2D" uid="uid://bnnljjevkd5m2" path="res://Assets/barraxpfill.png" id="16_r21lw"]
 [ext_resource type="Texture2D" uid="uid://di4tndelyn76i" path="res://Assets/miniespada.png" id="17_4troc"]
+[ext_resource type="PackedScene" uid="uid://5plb74ubdlx0" path="res://Scenes/mejoraswindow.tscn" id="22_d80fs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7jpm"]
 texture = ExtResource("2_sm8oj")
@@ -559,7 +560,7 @@ texture = ExtResource("15_a1ev0")
 [node name="Playerface" type="Sprite2D" parent="Personaje"]
 position = Vector2(-170, -82)
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("12_4ynro")
+texture = ExtResource("12_52g71")
 
 [node name="BarraSalud" type="HBoxContainer" parent="Personaje"]
 offset_left = -149.667
@@ -603,6 +604,7 @@ texture_progress = ExtResource("16_r21lw")
 
 [node name="XPTexturaBack" type="Sprite2D" parent="Personaje"]
 position = Vector2(2.98023e-08, -105)
+scale = Vector2(1, 1)
 texture = ExtResource("16_r21lw")
 
 [node name="Espada" type="Sprite2D" parent="Personaje"]
@@ -637,6 +639,9 @@ position = Vector2(526.25, 330.5)
 scale = Vector2(1.57955, 1.35)
 sprite_frames = SubResource("SpriteFrames_j6ph5")
 frame_progress = 0.414728
+
+[node name="Mejoraswindow" parent="." instance=ExtResource("22_d80fs")]
+visible = false
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="timeout" from="EnemySpawn" to="." method="_on_enemy_spawn_timeout"]
