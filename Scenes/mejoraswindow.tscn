@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://5plb74ubdlx0"]
+[gd_scene load_steps=14 format=3 uid="uid://5plb74ubdlx0"]
 
 [ext_resource type="Script" path="res://Scripts/Mejoraswindow.gd" id="1_xk545"]
 [ext_resource type="FontFile" uid="uid://c0c4myavfhko0" path="res://Fonts/ZeroCool.otf" id="2_pojhw"]
 [ext_resource type="Texture2D" uid="uid://dx4ykml56kqps" path="res://Assets/jugador1.png" id="3_ph2f1"]
-[ext_resource type="PackedScene" uid="uid://df6782cwru7" path="res://Scenes/parallax_background.tscn" id="4_y5w3c"]
 [ext_resource type="AudioStream" uid="uid://lns0awibxvkj" path="res://Sounds/pulsaBoton.mp3" id="5_fmdq0"]
 [ext_resource type="AudioStream" uid="uid://chi8ianedfwie" path="res://Sounds/loop.mp3" id="6_won4n"]
 [ext_resource type="AudioStream" uid="uid://3smjlv48x1k1" path="res://Sounds/optime mapa.mp3" id="7_jrr3e"]
@@ -59,24 +58,33 @@ animations = [{
 }]
 
 [node name="Mejoraswindow" type="Window"]
-position = Vector2i(120, 90)
-size = Vector2i(900, 480)
+process_mode = 2
+title = "Mejoras"
+position = Vector2i(370, 80)
+size = Vector2i(400, 480)
+borderless = true
+theme_override_fonts/title_font = ExtResource("2_pojhw")
+theme_override_font_sizes/title_font_size = 25
 script = ExtResource("1_xk545")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 330.0
-offset_top = 40.0
-offset_right = 581.0
-offset_bottom = 113.0
-theme_override_fonts/font = ExtResource("2_pojhw")
-theme_override_font_sizes/font_size = 60
-text = "MEJORAS"
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 380.0
+offset_bottom = 460.0
+color = Color(0.196078, 0.109804, 0.34902, 0.756863)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(900, 480)
+offset_right = 900.0
+offset_bottom = 480.0
+color = Color(0.0941176, 0.0431373, 0.188235, 0.282353)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 110.0
-offset_top = 150.0
-offset_right = 438.0
-offset_bottom = 341.0
+offset_left = 40.0
+offset_top = 220.0
+offset_right = 368.0
+offset_bottom = 411.0
 theme_override_constants/separation = 13
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
@@ -94,12 +102,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2/HBoxContainer"]
+[node name="b1" type="Button" parent="VBoxContainer/HBoxContainer2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_pojhw")
 theme_override_font_sizes/font_size = 25
-text = "Comprar"
+text = "Obtener
+"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -116,12 +125,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer3/HBoxContainer"]
+[node name="b2" type="Button" parent="VBoxContainer/HBoxContainer3/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_pojhw")
 theme_override_font_sizes/font_size = 25
-text = "Comprar"
+text = "Obtener"
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -138,12 +147,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer4/HBoxContainer"]
+[node name="b3" type="Button" parent="VBoxContainer/HBoxContainer4/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_pojhw")
 theme_override_font_sizes/font_size = 25
-text = "Comprar"
+text = "Obtener"
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -160,21 +169,19 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer5/HBoxContainer"]
+[node name="b4" type="Button" parent="VBoxContainer/HBoxContainer5/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_pojhw")
 theme_override_font_sizes/font_size = 25
-text = "Comprar"
+text = "Obtener"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(640, 180)
+position = Vector2(200, 140)
 rotation = -6.28319
-scale = Vector2(6.61715, 6.51216)
+scale = Vector2(2.4, 2.4)
 sprite_frames = SubResource("SpriteFrames_bjrfo")
 animation = &"IDLE"
-
-[node name="ParallaxBackground" parent="." instance=ExtResource("4_y5w3c")]
 
 [node name="Sonidos" type="Node2D" parent="." groups=["Sonidos"]]
 
@@ -190,3 +197,18 @@ bus = &"Music"
 [node name="SelectMap" type="AudioStreamPlayer2D" parent="Sonidos"]
 stream = ExtResource("7_jrr3e")
 bus = &"SFX"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 140.0
+offset_top = 50.0
+offset_right = 267.0
+offset_bottom = 86.0
+theme_override_fonts/font = ExtResource("2_pojhw")
+theme_override_font_sizes/font_size = 30
+text = "MEJORAS"
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/HBoxContainer/b1" to="." method="_on_b_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/HBoxContainer/b2" to="." method="_on_b_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer4/HBoxContainer/b3" to="." method="_on_b_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer5/HBoxContainer/b4" to="." method="_on_b_4_pressed"]

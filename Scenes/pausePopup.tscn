@@ -4,24 +4,26 @@
 [ext_resource type="FontFile" uid="uid://c0c4myavfhko0" path="res://Fonts/ZeroCool.otf" id="1_l28oo"]
 
 [node name="Popup" type="Popup"]
-position = Vector2i(80, 50)
-size = Vector2i(985, 515)
+process_mode = 2
+position = Vector2i(400, 90)
+size = Vector2i(400, 450)
 visible = true
 script = ExtResource("1_cldcr")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -0.5
 offset_top = -1.0
-offset_right = 985.5
-offset_bottom = 519.0
+offset_right = 399.5
+offset_bottom = 449.0
 color = Color(0.247059, 0.0196078, 0.301961, 0.137255)
 
 [node name="TabContainer" type="TabContainer" parent="."]
-custom_minimum_size = Vector2(985, 515)
-offset_right = 40.0
-offset_bottom = 40.0
+custom_minimum_size = Vector2(400, 450)
+offset_right = 400.0
+offset_bottom = 450.0
 theme_override_fonts/font = ExtResource("1_l28oo")
 theme_override_font_sizes/font_size = 23
+tab_alignment = 1
 
 [node name="Controles" type="TabBar" parent="TabContainer"]
 layout_mode = 2
@@ -29,10 +31,10 @@ theme_override_fonts/font = ExtResource("1_l28oo")
 
 [node name="GridContainer" type="GridContainer" parent="TabContainer/Controles"]
 layout_mode = 0
-offset_left = 15.0
-offset_top = 8.0
-offset_right = 124.0
-offset_bottom = 159.0
+offset_left = 100.0
+offset_top = 80.0
+offset_right = 307.0
+offset_bottom = 272.0
 theme_override_constants/h_separation = 40
 theme_override_constants/v_separation = 4
 columns = 2
@@ -42,6 +44,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_l28oo")
 theme_override_font_sizes/font_size = 20
 text = "Arriba"
+horizontal_alignment = 1
 vertical_alignment = 3
 
 [node name="Label6" type="Label" parent="TabContainer/Controles/GridContainer"]
@@ -49,6 +52,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_l28oo")
 theme_override_font_sizes/font_size = 17
 text = "W"
+horizontal_alignment = 1
 
 [node name="Abajo" type="Label" parent="TabContainer/Controles/GridContainer"]
 layout_mode = 2
@@ -56,6 +60,7 @@ theme_override_fonts/font = ExtResource("1_l28oo")
 theme_override_font_sizes/font_size = 20
 text = "Abajo
 "
+horizontal_alignment = 1
 vertical_alignment = 3
 
 [node name="Label8" type="Label" parent="TabContainer/Controles/GridContainer"]
@@ -63,6 +68,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_l28oo")
 theme_override_font_sizes/font_size = 17
 text = "S"
+horizontal_alignment = 1
 
 [node name="Derecha" type="Label" parent="TabContainer/Controles/GridContainer"]
 layout_mode = 2
@@ -70,6 +76,7 @@ theme_override_fonts/font = ExtResource("1_l28oo")
 theme_override_font_sizes/font_size = 20
 text = "Derecha
 "
+horizontal_alignment = 1
 vertical_alignment = 3
 
 [node name="Label10" type="Label" parent="TabContainer/Controles/GridContainer"]
@@ -77,6 +84,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_l28oo")
 theme_override_font_sizes/font_size = 17
 text = "D"
+horizontal_alignment = 1
 
 [node name="Izquierda" type="Label" parent="TabContainer/Controles/GridContainer"]
 layout_mode = 2
@@ -84,6 +92,7 @@ theme_override_fonts/font = ExtResource("1_l28oo")
 theme_override_font_sizes/font_size = 20
 text = "Izquierda
 "
+horizontal_alignment = 1
 vertical_alignment = 3
 
 [node name="Label9" type="Label" parent="TabContainer/Controles/GridContainer"]
@@ -91,12 +100,14 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_l28oo")
 theme_override_font_sizes/font_size = 17
 text = "A"
+horizontal_alignment = 1
 
 [node name="Ataque" type="Label" parent="TabContainer/Controles/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_l28oo")
 theme_override_font_sizes/font_size = 20
 text = "Ataque"
+horizontal_alignment = 1
 vertical_alignment = 3
 
 [node name="Label7" type="Label" parent="TabContainer/Controles/GridContainer"]
@@ -105,16 +116,45 @@ theme_override_fonts/font = ExtResource("1_l28oo")
 theme_override_font_sizes/font_size = 17
 text = "Z
 "
+horizontal_alignment = 1
 
 [node name="Ataque2" type="Label" parent="TabContainer/Controles/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_l28oo")
 theme_override_font_sizes/font_size = 20
-text = "Pausa"
+text = "Dash"
+horizontal_alignment = 1
 vertical_alignment = 3
 
 [node name="Label11" type="Label" parent="TabContainer/Controles/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_l28oo")
 theme_override_font_sizes/font_size = 17
+text = "x "
+horizontal_alignment = 1
+
+[node name="Ataque3" type="Label" parent="TabContainer/Controles/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_l28oo")
+theme_override_font_sizes/font_size = 20
+text = "Pausa"
+horizontal_alignment = 1
+vertical_alignment = 3
+
+[node name="Label12" type="Label" parent="TabContainer/Controles/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_l28oo")
+theme_override_font_sizes/font_size = 17
 text = "ESPACIO"
+horizontal_alignment = 1
+
+[node name="regresar" type="Button" parent="."]
+offset_left = 150.0
+offset_top = 350.0
+offset_right = 252.0
+offset_bottom = 382.0
+theme_override_fonts/font = ExtResource("1_l28oo")
+theme_override_font_sizes/font_size = 20
+text = "Regresar"
+
+[connection signal="pressed" from="regresar" to="." method="_on_regresar_pressed"]

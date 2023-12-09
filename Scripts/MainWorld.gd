@@ -2,10 +2,12 @@ extends Node2D
 
 @onready var enemy = preload("res://Adds/Scenes/enemigo.tscn")
 @onready var personaje = $Personaje
+@onready var mejoras= $Mejoraswindow
 @onready var arrowthrower = $"ArrowThrower"
 @onready var pauseButton = $Personaje/PauseButton
+@onready var mejorasScene=preload("res://Scenes/mejoraswindow.tscn")
 
-
+var paused = null
 var pauseee=false
 var maxenemy=25
 var cantenemy=0
@@ -41,7 +43,9 @@ func _process(delta):
 	
 	if(personaje.xp==personaje.nextxp):
 		get_tree().paused=true
-		$Mejoraswindow.popup()
+		$Mejoraswindow.visible=true
+		personaje.xp=0
+	
 
 
 func _on_enemy_spawn_timeout():
@@ -84,3 +88,10 @@ func _on_popup_2_visibility_changed():
 
 func _on_salir_pressed():
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+
+
+func _on_mejoraswindow_visibility_changed():
+	if $Mejoraswindow.visible==true:
+		get_tree().paused=true
+	else:
+		get_tree().paused=false

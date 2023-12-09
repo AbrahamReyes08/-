@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx8mnv8bgapcf"
-path="res://.godot/imported/ezgif.com-gif-maker.png-cbef9fa9f912e3212df6d60cae64d410.ctex"
+uid="uid://co2qi716wtc07"
+path="res://.godot/imported/User_Icon.png-8af3953e007465da4faf55a207c26b2d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/ezgif.com-gif-maker.png"
-dest_files=["res://.godot/imported/ezgif.com-gif-maker.png-cbef9fa9f912e3212df6d60cae64d410.ctex"]
+source_file="res://Assets/User_Icon.png"
+dest_files=["res://.godot/imported/User_Icon.png-8af3953e007465da4faf55a207c26b2d.ctex"]
 
 [params]
 
