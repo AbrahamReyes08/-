@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b5vnrxvwyxssq" path="res://imports/fuenteDeAgua.png" id="10_hoy05"]
 [ext_resource type="PackedScene" uid="uid://bcbl7ac53rpn" path="res://Adds/Scenes/arrow_thrower.tscn" id="10_kphet"]
 [ext_resource type="PackedScene" uid="uid://pyte6dejwilv" path="res://Scenes/pausePopup.tscn" id="11_bljsd"]
-[ext_resource type="Texture2D" uid="uid://co2qi716wtc07" path="res://Assets/User_Icon.png" id="12_4ynro"]
+[ext_resource type="Texture2D" uid="uid://jks0ufh4xsx6" path="res://Assets/playerface.jpg" id="12_hsecn"]
 [ext_resource type="AudioStream" uid="uid://3smjlv48x1k1" path="res://Sounds/optime mapa.mp3" id="12_vj42s"]
 [ext_resource type="AudioStream" uid="uid://chi8ianedfwie" path="res://Sounds/loop.mp3" id="13_3owdl"]
 [ext_resource type="Texture2D" uid="uid://dcvphr45xai4y" path="res://imports/pauseIcon.png" id="13_7axqv"]
@@ -575,7 +575,7 @@ color = Color(1, 0.619608, 0.619608, 1)
 [node name="Playerface" type="Sprite2D" parent="Personaje"]
 position = Vector2(-167, -83.6167)
 scale = Vector2(0.555556, 0.553704)
-texture = ExtResource("12_4ynro")
+texture = ExtResource("12_hsecn")
 
 [node name="BarraSalud" type="HBoxContainer" parent="Personaje"]
 offset_left = -149.667
