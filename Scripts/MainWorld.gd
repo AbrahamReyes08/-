@@ -130,3 +130,12 @@ func _on_enemy_change_timeout():
 		add_child(enemy_instance)
 	else:
 		pass
+
+
+func _on_bushes_area_area_entered(area):
+	if area.name=="enterCoin":
+		personaje.get_node("Movimiento").speed-=50
+
+func _on_bushes_area_area_exited(area):
+	if area.name=="enterCoin":
+		personaje.get_node("Movimiento").speed+=50
