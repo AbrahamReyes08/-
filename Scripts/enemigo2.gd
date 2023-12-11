@@ -2,12 +2,13 @@ extends CharacterBody2D
 
 @onready var movimiento: MovimientoEnem = $"MovimientoEnem" as MovimientoEnem
 @onready var animPlayer = $"AnimationPlayer"
-@onready var coinLoot=preload("res://Scenes/coin.tscn")
+@onready var coinLoot=preload("res://Scenes/coin2.tscn")
 
 var jugador
-var hp = 200
-var damage = 50
+var hp = 100
+var damage = 25
 var muerto=false
+var boss = false
 
 var input_vector: Vector2
 
@@ -60,5 +61,7 @@ func _on_hurt_box_area_entered(HitBox: Area2D):
 
 func loot_coin():
 	var coin=coinLoot.instantiate()
+	if(boss):
+		coin.value = 15
 	coin.global_position = global_position
 	get_tree().get_root().add_child(coin)

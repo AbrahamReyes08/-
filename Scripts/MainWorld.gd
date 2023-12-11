@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var enemy = preload("res://Adds/Scenes/enemigo.tscn")
+@onready var enemy2 = preload("res://Adds/Scenes/enemigo2.tscn")
 @onready var personaje = $Personaje
 @onready var mejoras= $Mejoraswindow
 @onready var arrowthrower = $"ArrowThrower"
@@ -9,6 +10,7 @@ extends Node2D
 
 var paused = null
 var pauseee=false
+var fase2=false
 var maxenemy=25
 var cantenemy=0
 
@@ -25,6 +27,7 @@ func _ready():
 	$fuente.play("default")
 	arrowthrower.set_player(personaje)
 	$Start.play()
+	$EnemyChange.start()
 	
 
 
@@ -56,7 +59,16 @@ func _on_enemy_spawn_timeout():
 		while(((new_x>position_player.x-190 && new_x<position_player.x+190) && (new_y>position_player.y-110 && new_y<position_player.y+110)) || ((new_x<25 || new_x>1135) || (new_y<25 || new_y>625)) || (is_position_colliding(new_x, new_y))):
 			new_x = randi_range(position_player.x-210, position_player.x+210)
 			new_y = randi_range(position_player.y-130, position_player.y+130)
-		var enemy_instance = enemy.instantiate()
+		var enemy_instance
+		if(fase2):
+			var rand: int = randi_range(0,1)
+			if(rand == 0):
+				enemy_instance = enemy.instantiate()
+			elif(rand==1):
+				enemy_instance = enemy2.instantiate()
+				enemy_instance.get_node("MovimientoEnem").speed = 120
+		else:
+			enemy_instance = enemy2.instantiate()
 		enemy_instance.position = Vector2(new_x, new_y)
 		enemy_instance.set_target(personaje)
 		add_child(enemy_instance)
@@ -95,3 +107,26 @@ func _on_mejoraswindow_visibility_changed():
 		get_tree().paused=true
 	else:
 		get_tree().paused=false
+
+
+func _on_enemy_change_timeout():
+	
+	if(!fase2):
+		fase2=true
+		var position_player = personaje.position
+		var new_x = randi_range(position_player.x-210, position_player.x+210)
+		var new_y = randi_range(position_player.y-130, position_player.y+130)
+		while(((new_x>position_player.x-190 && new_x<position_player.x+190) && (new_y>position_player.y-110 && new_y<position_player.y+110)) || ((new_x<25 || new_x>1135) || (new_y<25 || new_y>625)) || (is_position_colliding(new_x, new_y))):
+			new_x = randi_range(position_player.x-210, position_player.x+210)
+			new_y = randi_range(position_player.y-130, position_player.y+130)
+		var enemy_instance = enemy2.instantiate()
+		enemy_instance.scale = Vector2(3, 3)
+		enemy_instance.get_node("MovimientoEnem").speed-=15
+		enemy_instance.boss=true
+		enemy_instance.hp+=750
+		enemy_instance.get_node("HitBox").damage+=10
+		enemy_instance.position = Vector2(new_x, new_y)
+		enemy_instance.set_target(personaje)
+		add_child(enemy_instance)
+	else:
+		pass

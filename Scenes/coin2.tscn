@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbi02eyjgagbg"]
+
+[ext_resource type="Script" path="res://Scripts/coin2.gd" id="1_dethv"]
+[ext_resource type="Texture2D" uid="uid://wru0loqykdyv" path="res://Assets/icecream.png" id="2_jrxy0"]
+[ext_resource type="PackedScene" uid="uid://cu1rstmxxcj6a" path="res://Adds/MovementScenes/movimeintoflecha.tscn" id="3_osn0e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ugrbb"]
+radius = 7.44228
+
+[node name="coin2" type="Area2D"]
+scale = Vector2(2.3, 2.3)
+script = ExtResource("1_dethv")
+
+[node name="CoinBody" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CoinBody"]
+position = Vector2(-0.434783, -1.30435)
+texture = ExtResource("2_jrxy0")
+hframes = 7
+vframes = 5
+frame = 32
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoinBody"]
+position = Vector2(-0.434783, 0.434783)
+shape = SubResource("CircleShape2D_ugrbb")
+disabled = true
+
+[node name="movimeintoflecha" parent="CoinBody" instance=ExtResource("3_osn0e")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.434783, 0.434783)
+shape = SubResource("CircleShape2D_ugrbb")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.65
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,6 +1,7 @@
 extends Area2D
 var posicion
 var facepos
+var value=1
 var finished = false
 
 func _process(delta):
@@ -19,7 +20,7 @@ func _on_area_entered(area: Area2D):
 		$CoinBody/movimeintoflecha.speed = 1000
 		$CoinBody/movimeintoflecha.setup($CoinBody)
 		posicion = facepos.global_position-$CoinBody.global_position
-		personaje.xp+=2
+		personaje.xp+=value
 	
 func _physics_process(delta):
 	if(posicion!=null && !finished):
