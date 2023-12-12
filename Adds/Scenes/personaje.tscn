@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://1pfrtj14ocsy"]
+[gd_scene load_steps=23 format=3 uid="uid://1pfrtj14ocsy"]
 
 [ext_resource type="PackedScene" uid="uid://bkqd0ixaxta6c" path="res://Adds/MovementScenes/movimiento.tscn" id="1_2hqh2"]
 [ext_resource type="Texture2D" uid="uid://dx4ykml56kqps" path="res://Assets/jugador1.png" id="2_pxpaw"]
 [ext_resource type="Script" path="res://Scripts/HitBox.gd" id="3_fhbup"]
+[ext_resource type="Script" path="res://Adds/Scenes/Camera2D.gd" id="4_e6qmj"]
 [ext_resource type="AudioStream" uid="uid://dbyo461725ygk" path="res://Sounds/punch-2-166695.mp3" id="4_vpmoh"]
 [ext_resource type="AudioStream" uid="uid://dkeonn5ekplhs" path="res://Sounds/mixkit-arcade-retro-game-over-213.mp3" id="5_lg7h8"]
 
@@ -15,7 +16,7 @@ class_name Jugador
 @onready var animPlayer = $\"AnimationPlayer\"
 @onready var mod = sprite.modulate
 
-var healprob=10
+var healprob=5
 var heal=15
 var hp = 100
 var maxhp = 100
@@ -28,6 +29,7 @@ var rotado = true
 var atacar = false
 var puedeatacar = true
 var pts=0
+var niveles := [0, 0, 0, 0, 0, 0]
 
 func _ready():
 	movimiento.setupPersonaje(self)
@@ -506,6 +508,9 @@ shape = SubResource("CapsuleShape2D_0kasb")
 disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("4_e6qmj")
+
+[node name="Timer" type="Timer" parent="Camera2D"]
 
 [node name="CooldownAtaque" type="Timer" parent="."]
 wait_time = 1.25
@@ -535,6 +540,7 @@ wait_time = 2.0
 stream = ExtResource("5_lg7h8")
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="timeout" from="Camera2D/Timer" to="Camera2D" method="_on_timer_timeout"]
 [connection signal="timeout" from="CooldownAtaque" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="HitCooldown" to="." method="_on_hit_cooldown_timeout"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

@@ -61,7 +61,7 @@ animations = [{
 [node name="Mejoraswindow" type="Window"]
 process_mode = 2
 title = "Mejoras"
-position = Vector2i(370, 48)
+position = Vector2i(370, 0)
 size = Vector2i(400, 480)
 borderless = true
 theme_override_fonts/title_font = ExtResource("2_pojhw")
@@ -160,7 +160,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
-[node name="b1" type="Button" parent="GridContainer/HBoxContainer2"]
+[node name="b2" type="Button" parent="GridContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_pojhw")
@@ -183,7 +183,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
-[node name="b1" type="Button" parent="GridContainer/HBoxContainer3"]
+[node name="b3" type="Button" parent="GridContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_pojhw")
@@ -206,7 +206,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
-[node name="b1" type="Button" parent="GridContainer/HBoxContainer4"]
+[node name="b4" type="Button" parent="GridContainer/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_pojhw")
@@ -230,7 +230,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
-[node name="b1" type="Button" parent="GridContainer/HBoxContainer5"]
+[node name="b5" type="Button" parent="GridContainer/HBoxContainer5"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_pojhw")
@@ -239,8 +239,13 @@ text = "mejorar
 "
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="mouse_entered" from="GridContainer/HBoxContainer/b1" to="." method="_on_b_1_mouse_entered"]
 [connection signal="pressed" from="GridContainer/HBoxContainer/b1" to="." method="_on_b_1_pressed"]
-[connection signal="pressed" from="GridContainer/HBoxContainer2/b1" to="." method="_on_b_1_pressed"]
-[connection signal="pressed" from="GridContainer/HBoxContainer3/b1" to="." method="_on_b_1_pressed"]
-[connection signal="pressed" from="GridContainer/HBoxContainer4/b1" to="." method="_on_b_1_pressed"]
-[connection signal="pressed" from="GridContainer/HBoxContainer5/b1" to="." method="_on_b_1_pressed"]
+[connection signal="mouse_entered" from="GridContainer/HBoxContainer2/b2" to="." method="_on_b_2_mouse_entered"]
+[connection signal="pressed" from="GridContainer/HBoxContainer2/b2" to="." method="_on_b_2_pressed"]
+[connection signal="mouse_entered" from="GridContainer/HBoxContainer3/b3" to="." method="_on_b_3_mouse_entered"]
+[connection signal="pressed" from="GridContainer/HBoxContainer3/b3" to="." method="_on_b_3_pressed"]
+[connection signal="mouse_entered" from="GridContainer/HBoxContainer4/b4" to="." method="_on_b_4_mouse_entered"]
+[connection signal="pressed" from="GridContainer/HBoxContainer4/b4" to="." method="_on_b_4_pressed"]
+[connection signal="mouse_entered" from="GridContainer/HBoxContainer5/b5" to="." method="_on_b_5_mouse_entered"]
+[connection signal="pressed" from="GridContainer/HBoxContainer5/b5" to="." method="_on_b_5_pressed"]

@@ -1,7 +1,6 @@
 extends Popup
 
 @onready var brightness_slider=get_node("SettingsTabs/Video/BrilloSlide")
-
 @onready var music_slider=get_node("SettingsTabs/Audio/MusicVOL")
 @onready var efecto_slider=get_node("SettingsTabs/Audio/EfectosVOL")
 

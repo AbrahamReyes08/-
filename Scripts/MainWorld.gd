@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var enemy = preload("res://Adds/Scenes/enemigo.tscn")
 @onready var enemy2 = preload("res://Adds/Scenes/enemigo2.tscn")
+@onready var finalboss = preload("res://Adds/Scenes/boss.tscn")
 @onready var personaje = $Personaje
 @onready var mejoras= $Mejoraswindow
 @onready var arrowthrower = $"ArrowThrower"
@@ -15,14 +16,14 @@ var maxenemy=25
 var cantenemy=0
 
 func _ready():
-	$Personaje/BarraSalud.z_index = 10
-	$Personaje/Playerface.z_index = 10
-	$Personaje/BarraXP.z_index = 10
-	$Personaje/HPLbl.z_index = 10
-	$Personaje/TitleHPLbl.z_index = 10
-	$Personaje/XPTexturaBack.z_index = 10
-	$Personaje/DamageLbl.z_index = 10
-	$Personaje/Espada.z_index = 10
+	$Personaje/BarraSalud.z_index = 2000
+	$Personaje/Playerface.z_index = 2000
+	$Personaje/BarraXP.z_index = 2000
+	$Personaje/HPLbl.z_index = 2000
+	$Personaje/TitleHPLbl.z_index = 2000
+	$Personaje/XPTexturaBack.z_index = 2000
+	$Personaje/DamageLbl.z_index = 2000
+	$Personaje/Espada.z_index = 2000
 	$EnemySpawn.start()
 	$fuente.play("default")
 	arrowthrower.set_player(personaje)
@@ -112,7 +113,6 @@ func _on_mejoraswindow_visibility_changed():
 
 
 func _on_enemy_change_timeout():
-	
 	if(!fase2):
 		fase2=true
 		var position_player = personaje.position
@@ -131,7 +131,18 @@ func _on_enemy_change_timeout():
 		enemy_instance.set_target(personaje)
 		add_child(enemy_instance)
 	else:
-		pass
+		var position_player = personaje.position
+		var new_x = randi_range(position_player.x-210, position_player.x+210)
+		var new_y = randi_range(position_player.y-130, position_player.y+130)
+		while(((new_x>position_player.x-190 && new_x<position_player.x+190) && (new_y>position_player.y-110 && new_y<position_player.y+110)) || ((new_x<25 || new_x>1135) || (new_y<25 || new_y>625)) || (is_position_colliding(new_x, new_y))):
+			new_x = randi_range(position_player.x-210, position_player.x+210)
+			new_y = randi_range(position_player.y-130, position_player.y+130)
+		var boss = finalboss.instantiate()
+		boss.position = Vector2(new_x, new_y)
+		boss.set_target(personaje)
+		boss.scale = Vector2(5, 5)
+		add_child(boss)
+		$EnemySpawn.stop()
 
 
 func _on_bushes_area_area_entered(area):

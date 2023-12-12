@@ -3,6 +3,8 @@ extends Node2D
 @onready var enemigo = preload("res://Adds/Scenes/enemigo.tscn")
 @onready var campovision = $"FieldOfView"
 var cantflechas = 3
+var damage = 50
+var knockback = 0
 var jugador
 
 func _ready():
@@ -37,6 +39,8 @@ func _on_cooldown_timeout():
 		if(posicion!=null):
 			$CooldownBetween.start()
 			var newflecha = flecha.instantiate()
+			newflecha.get_node("HitBox").damage = damage
+			newflecha.get_node("HitBox").knockback = knockback
 			add_child(newflecha)
 			newflecha.global_position = Vector2(jugador.global_position.x, jugador.global_position.y)
 			newflecha.set_targets(posicion)

@@ -5,13 +5,17 @@ extends CharacterBody2D
 @onready var coinLoot=preload("res://Scenes/coin.tscn")
 
 var jugador
-var hp = 200
-var damage = 50
+var hp = 2500
+var damage = 75
 var muerto=false
+var jumping = false
+var movejump = false
 
 var input_vector: Vector2
 
 func _ready():
+	$JumpCooldown.start()
+	movimiento.speed = 110
 	movimiento.setupPersonaje(self)
 	
 func set_target(jugador):
@@ -23,10 +27,13 @@ func _process(delta):
 func _physics_process(delta):
 	var posicion = jugador.position
 	var direccion = posicion - self.position
-	if(hp>0 ):
-		movimiento.moverse(direccion.normalized())
-		$Sprite2D.flip_h = direccion.x<0
-		animPlayer.play("Move")
+	
+	if(hp>0):
+		if(!jumping):
+			movimiento.moverse(direccion.normalized())
+			$Sprite2D.flip_h = direccion.x<0
+			if(!movejump):
+				animPlayer.play("Move")
 	else:
 		$HitBox.disable_mode=true
 		$HurtBox.disable_mode=true
@@ -65,3 +72,37 @@ func loot_coin():
 	var coin=coinLoot.instantiate()
 	coin.global_position = global_position
 	get_tree().get_root().add_child(coin)
+
+
+func _on_jump_cooldown_timeout():
+	jumping = true
+	animPlayer.play("Jump")
+	await(animPlayer.animation_finished)
+	animPlayer.play("OnAir")
+	$OnAirTime.start()
+	jumping = false
+	movejump = true
+	$HitBox/CollisionShape2D.disabled = true
+	$HurtBox/CollisionShape2D.disabled = true
+	$MovimientoEnem.speed = 250
+	
+
+
+func _on_on_air_time_timeout():
+	jumping = true
+	$OnAirTime.stop()
+	$FallingTime.start()
+	
+
+func _on_falling_time_timeout():
+	$HurtBox/CollisionShape2D.disabled = false
+	$HitBox/CollisionShape2D.disabled = false
+	animPlayer.play("Fall")
+	await(animPlayer.animation_finished)
+	jumping = false
+	movejump = false
+	$FallingTime.stop()
+	$MovimientoEnem.speed = 110
+	
+func fallshake():
+	jugador.get_node("Camera2D").shake(0.5, 7)
