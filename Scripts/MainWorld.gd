@@ -49,6 +49,8 @@ func _process(delta):
 		$Mejoraswindow.visible=true
 		personaje.xp=0
 	
+	$Personaje/Label2.text=str(personaje.pts)
+	
 
 
 func _on_enemy_spawn_timeout():

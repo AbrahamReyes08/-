@@ -10,6 +10,7 @@ func _process(delta):
 func _on_area_entered(area: Area2D):
 	if area.name=="enterCoin":
 		var personaje = area.get_parent()
+		personaje.pts+=15
 		var prob = randi_range(1, 100)
 		if(prob<=personaje.healprob):
 			personaje.hp+=personaje.heal

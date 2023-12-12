@@ -12,6 +12,7 @@ func _on_area_entered(area: Area2D):
 	if area.name=="enterCoin":
 		var personaje = area.get_parent()
 		var prob = randi_range(1, 100)
+		personaje.pts+=15
 		if(prob<=personaje.healprob):
 			personaje.hp+=personaje.heal
 			if(personaje.hp>personaje.maxhp):

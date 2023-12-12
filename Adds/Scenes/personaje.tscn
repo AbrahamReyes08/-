@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://1pfrtj14ocsy"]
+[gd_scene load_steps=22 format=3 uid="uid://1pfrtj14ocsy"]
 
 [ext_resource type="PackedScene" uid="uid://bkqd0ixaxta6c" path="res://Adds/MovementScenes/movimiento.tscn" id="1_2hqh2"]
 [ext_resource type="Texture2D" uid="uid://dx4ykml56kqps" path="res://Assets/jugador1.png" id="2_pxpaw"]
 [ext_resource type="Script" path="res://Scripts/HitBox.gd" id="3_fhbup"]
 [ext_resource type="AudioStream" uid="uid://dbyo461725ygk" path="res://Sounds/punch-2-166695.mp3" id="4_vpmoh"]
+[ext_resource type="AudioStream" uid="uid://dkeonn5ekplhs" path="res://Sounds/mixkit-arcade-retro-game-over-213.mp3" id="5_lg7h8"]
 
 [sub_resource type="GDScript" id="GDScript_r7xs3"]
 script/source = "extends CharacterBody2D
@@ -26,6 +27,7 @@ var input_vector: Vector2
 var rotado = true
 var atacar = false
 var puedeatacar = true
+var pts=0
 
 func _ready():
 	movimiento.setupPersonaje(self)
@@ -47,6 +49,8 @@ func _physics_process(delta):
 	move_and_view()
 	if(Input.is_action_just_pressed(\"attack\") && puedeatacar):
 		atacar=true
+	
+	dead()
 	
 
 func move_and_view():
@@ -136,6 +140,12 @@ func _on_dash_timer_timeout():
 
 func _on_dash_cooldown_timeout():
 	$DashCooldown.stop()
+
+
+func dead():
+	if hp==0:
+		get_tree().change_scene_to_file(\"res://Scenes/DeadScene.tscn\")
+
 "
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jfvqr"]
@@ -144,7 +154,7 @@ height = 14.0
 
 [sub_resource type="Animation" id="Animation_kk4t6"]
 resource_name = "GameOver"
-length = 0.25
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -448,6 +458,7 @@ height = 38.0
 radius = 4.0
 
 [node name="Personaje" type="CharacterBody2D"]
+process_mode = 1
 position = Vector2(1737, 979)
 collision_layer = 2
 collision_mask = 5
@@ -519,6 +530,9 @@ wait_time = 0.175
 
 [node name="DashCooldown" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_lg7h8")
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="timeout" from="CooldownAtaque" to="." method="_on_timer_timeout"]

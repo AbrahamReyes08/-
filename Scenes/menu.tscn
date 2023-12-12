@@ -54,12 +54,6 @@ theme_override_fonts/font = ExtResource("2_jg4ew")
 theme_override_font_sizes/font_size = 30
 text = "Ajustes"
 
-[node name="Mejoras" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_jg4ew")
-theme_override_font_sizes/font_size = 30
-text = "MEJORAS"
-
 [node name="Salir" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_jg4ew")
@@ -95,7 +89,5 @@ visible = false
 [connection signal="pressed" from="VBoxContainer/Jugar" to="." method="_on_jugar_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/Ajustes" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Ajustes" to="." method="_on_button_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/Mejoras" to="." method="_on_mejoras_mouse_entered"]
-[connection signal="pressed" from="VBoxContainer/Mejoras" to="." method="_on_mejoras_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/Salir" to="." method="_on_salir_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_pressed"]

@@ -114,8 +114,7 @@ vertical_alignment = 3
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_l28oo")
 theme_override_font_sizes/font_size = 17
-text = "Z
-"
+text = "ESPACIO"
 horizontal_alignment = 1
 
 [node name="Ataque2" type="Label" parent="TabContainer/Controles/GridContainer"]
@@ -130,7 +129,7 @@ vertical_alignment = 3
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_l28oo")
 theme_override_font_sizes/font_size = 17
-text = "x "
+text = "shift"
 horizontal_alignment = 1
 
 [node name="Ataque3" type="Label" parent="TabContainer/Controles/GridContainer"]
@@ -145,7 +144,7 @@ vertical_alignment = 3
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_l28oo")
 theme_override_font_sizes/font_size = 17
-text = "ESPACIO"
+text = "ESCAPE"
 horizontal_alignment = 1
 
 [node name="regresar" type="Button" parent="."]
