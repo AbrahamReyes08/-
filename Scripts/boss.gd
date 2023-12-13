@@ -18,6 +18,8 @@ func _ready():
 	movimiento.speed = 110
 	movimiento.setupPersonaje(self)
 	
+	dead()
+
 func set_target(jugador):
 	self.jugador=jugador
 
@@ -106,3 +108,10 @@ func _on_falling_time_timeout():
 	
 func fallshake():
 	jugador.get_node("Camera2D").shake(0.5, 7)
+
+func dead():
+	var escena_actual = get_tree().get_current_scene()
+	if hp<=0:
+		for hijo in escena_actual.get_children():
+			hijo.queue_free()
+		get_tree().change_scene_to_file("res://Scenes/DeadScene.tscn")

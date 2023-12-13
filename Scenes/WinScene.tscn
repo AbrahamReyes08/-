@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://1hc3ikfm7xt3"]
+
+[ext_resource type="Script" path="res://Scripts/WinScene.gd" id="1_01ajq"]
+[ext_resource type="PackedScene" uid="uid://df6782cwru7" path="res://Scenes/parallax_background.tscn" id="2_3mor7"]
+[ext_resource type="FontFile" uid="uid://c0c4myavfhko0" path="res://Fonts/ZeroCool.otf" id="3_tw73y"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_01ajq")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_3mor7")]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 381.0
+offset_top = 273.0
+offset_right = 755.0
+offset_bottom = 354.0
+theme_override_fonts/font = ExtResource("3_tw73y")
+theme_override_font_sizes/font_size = 70
+text = "Ganaste"
+horizontal_alignment = 1
+
+[node name="aceptar" type="Button" parent="."]
+offset_left = 395.0
+offset_top = 355.0
+offset_right = 744.0
+offset_bottom = 393.0
+theme_override_fonts/font = ExtResource("3_tw73y")
+theme_override_font_sizes/font_size = 25
+text = "Regresar a menu principal"
+
+[connection signal="pressed" from="aceptar" to="." method="_on_aceptar_pressed"]

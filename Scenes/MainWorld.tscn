@@ -441,10 +441,6 @@ shape = SubResource("CapsuleShape2D_6w20g")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_mask = 0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(1, 3)
-polygon = PackedVector2Array(735, 64, 735, 18, 847, 18, 847, 50, 1038, 50, 1039, 130, 943, 131, 943, 162, 876.787, 162, 847, 162, 847, 192, 815, 192, 815, 145, 735, 145, 735, 97, 740, 97, 739, 130, 819, 130, 819, 179, 843, 178, 843, 146, 938, 146, 938, 114, 1034, 114, 1035, 55, 843, 55, 843, 23, 740, 23, 740, 65)
-
 [node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(271, 66, 367, 66, 367, 98, 271, 98)
 
@@ -740,6 +736,10 @@ position = Vector2(826, 148.333)
 scale = Vector2(0.760416, 0.791667)
 texture = ExtResource("23_ivx6g")
 
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(0.333328, -1.33333)
+polygon = PackedVector2Array(1035.67, 53.6667, 847.333, 52.3333, 847.333, 21.6667, 735, 20.3333, 736, 147.667, 815.333, 147.667, 815, 197.667, 845, 196.667, 846.333, 163.667, 942.333, 165, 942.333, 133, 1037.33, 131.667)
+
 [node name="masCollisionshapes" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="masCollisionshapes"]
@@ -804,15 +804,17 @@ offset_left = -146.667
 offset_top = -81.3333
 offset_right = -126.667
 offset_bottom = -61.3333
+theme_override_fonts/font = ExtResource("19_vurx5")
 theme_override_font_sizes/font_size = 12
 text = "HP"
 
 [node name="HPLbl" type="Label" parent="Personaje"]
 offset_left = -128.333
-offset_top = -81.3333
+offset_top = -81.6666
 offset_right = -82.3333
-offset_bottom = -58.3333
-theme_override_font_sizes/font_size = 12
+offset_bottom = -58.6666
+theme_override_fonts/font = ExtResource("19_vurx5")
+theme_override_font_sizes/font_size = 13
 text = "100/100
 "
 
@@ -832,7 +834,7 @@ position = Vector2(2.98023e-08, -105)
 texture = ExtResource("16_r21lw")
 
 [node name="Espada" type="Sprite2D" parent="Personaje"]
-position = Vector2(-73, -72.3333)
+position = Vector2(-73, -72.6666)
 texture = ExtResource("17_4troc")
 
 [node name="DamageLbl" type="Label" parent="Personaje"]
@@ -840,6 +842,7 @@ offset_left = -66.0
 offset_top = -81.3333
 offset_right = -52.0
 offset_bottom = -64.3333
+theme_override_fonts/font = ExtResource("19_vurx5")
 theme_override_font_sizes/font_size = 12
 text = "10
 "

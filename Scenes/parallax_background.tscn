@@ -5,6 +5,6 @@
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="ParallaxLayer"]
-offset_right = 1150.0
-offset_bottom = 647.0
-color = Color(0.207843, 0.207843, 0.207843, 1)
+offset_right = 1149.0
+offset_bottom = 648.0
+color = Color(0.180392, 0, 0.0980392, 1)

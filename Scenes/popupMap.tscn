@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://1dqe0g45rivi"]
+[gd_scene load_steps=5 format=3 uid="uid://1dqe0g45rivi"]
 
 [ext_resource type="Script" path="res://Scripts/popupMap.gd" id="1_luqnv"]
-[ext_resource type="Texture2D" uid="uid://drk7jmeagccp3" path="res://MapsImages/mapNie.png" id="3_8rtws"]
 [ext_resource type="Texture2D" uid="uid://daxd4u01ovs1r" path="res://MapsImages/bosque.png" id="3_khiyr"]
 [ext_resource type="FontFile" uid="uid://c0c4myavfhko0" path="res://Fonts/ZeroCool.otf" id="4_gn13d"]
 [ext_resource type="Texture2D" uid="uid://b6y68jxwa2oie" path="res://MapsImages/desierto.png" id="4_qdljb"]
@@ -76,11 +75,6 @@ custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 texture = ExtResource("4_qdljb")
 
-[node name="TextureRect3" type="TextureRect" parent="MarginContainer/VBoxContainer/imagesCont"]
-custom_minimum_size = Vector2(250, 0)
-layout_mode = 2
-texture = ExtResource("3_8rtws")
-
 [node name="ButtonsCont" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -100,16 +94,7 @@ theme_override_fonts/font = ExtResource("4_gn13d")
 theme_override_font_sizes/font_size = 30
 text = "DESIERTO"
 
-[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/ButtonsCont"]
-custom_minimum_size = Vector2(250, 0)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_gn13d")
-theme_override_font_sizes/font_size = 30
-text = "NIEVE"
-
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/ButtonsCont/Button" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsCont/Button" to="." method="_on_button_pressed"]
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/ButtonsCont/Button2" to="." method="_on_button_2_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsCont/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/ButtonsCont/Button3" to="." method="_on_button_3_mouse_entered"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsCont/Button3" to="." method="_on_button_3_pressed"]

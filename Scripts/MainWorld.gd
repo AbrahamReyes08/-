@@ -34,7 +34,7 @@ func _ready():
 
 func _process(delta):
 	$Personaje/BarraSalud/BarraSaludTextura.value = personaje.hp
-	$Personaje/HPLbl.text = str(personaje.hp)+"/"+str(personaje.maxhp)
+	_color_de_la_vida()
 	$Personaje/DamageLbl.text = str(personaje.get_node("HitBox").damage)
 	arrowthrower.position=personaje.position
 	
@@ -52,6 +52,7 @@ func _process(delta):
 	
 	$Personaje/Label2.text=str(personaje.pts)
 	
+
 
 
 func _on_enemy_spawn_timeout():
@@ -152,3 +153,21 @@ func _on_bushes_area_area_entered(area):
 func _on_bushes_area_area_exited(area):
 	if area.name=="enterCoin":
 		personaje.get_node("Movimiento").speed+=50
+	
+
+func _color_de_la_vida():
+	var hp_text = str(personaje.hp) + "/" + str(personaje.maxhp)
+	$Personaje/HPLbl.text = hp_text
+	
+	var color_normal = Color(1, 1, 1) 
+	var color_naranja = Color(1, 0.5, 0)
+	var color_rojo = Color(1, 0, 0) 
+	
+	if personaje.hp <= 20:
+		$Personaje/HPLbl.add_theme_color_override("font_color", color_rojo)
+	elif personaje.hp <= 50:
+		$Personaje/HPLbl.add_theme_color_override("font_color", color_naranja)
+	else:
+		$Personaje/HPLbl.add_theme_color_override("font_color", color_normal)
+	
+	

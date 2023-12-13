@@ -145,8 +145,12 @@ func _on_dash_cooldown_timeout():
 
 
 func dead():
-	if hp==0:
+	var escena_actual = get_tree().get_current_scene()
+	if hp<=0:
+		for hijo in escena_actual.get_children():
+			hijo.queue_free()
 		get_tree().change_scene_to_file(\"res://Scenes/DeadScene.tscn\")
+		
 
 "
 
