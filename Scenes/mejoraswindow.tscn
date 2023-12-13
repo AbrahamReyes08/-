@@ -61,7 +61,7 @@ animations = [{
 [node name="Mejoraswindow" type="Window"]
 process_mode = 2
 title = "Mejoras"
-position = Vector2i(370, 80)
+position = Vector2i(54, 0)
 size = Vector2i(400, 480)
 borderless = true
 theme_override_fonts/title_font = ExtResource("2_pojhw")
@@ -223,7 +223,7 @@ expand_mode = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_pojhw")
 theme_override_font_sizes/font_size = 19
-text = "VELOCIDAD"
+text = "KNOCKBACK"
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="GridContainer"]
 layout_mode = 2
