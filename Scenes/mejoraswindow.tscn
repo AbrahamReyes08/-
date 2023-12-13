@@ -1,12 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://5plb74ubdlx0"]
+[gd_scene load_steps=19 format=3 uid="uid://5plb74ubdlx0"]
 
 [ext_resource type="Script" path="res://Scripts/Mejoraswindow.gd" id="1_xk545"]
 [ext_resource type="FontFile" uid="uid://c0c4myavfhko0" path="res://Fonts/ZeroCool.otf" id="2_pojhw"]
 [ext_resource type="Texture2D" uid="uid://dx4ykml56kqps" path="res://Assets/jugador1.png" id="3_ph2f1"]
 [ext_resource type="AudioStream" uid="uid://lns0awibxvkj" path="res://Sounds/pulsaBoton.mp3" id="5_fmdq0"]
 [ext_resource type="AudioStream" uid="uid://chi8ianedfwie" path="res://Sounds/loop.mp3" id="6_won4n"]
+[ext_resource type="Texture2D" uid="uid://dwrm6sgfth5jk" path="res://Assets/felchasicon.png" id="7_eqctw"]
 [ext_resource type="AudioStream" uid="uid://3smjlv48x1k1" path="res://Sounds/optime mapa.mp3" id="7_jrr3e"]
-[ext_resource type="Texture2D" uid="uid://di4tndelyn76i" path="res://Assets/miniespada.png" id="7_p22pv"]
+[ext_resource type="Texture2D" uid="uid://ba8dsqpeaq0rl" path="res://Assets/espadaicon.png" id="8_k5f6b"]
+[ext_resource type="Texture2D" uid="uid://htum1aen0d3v" path="res://Assets/curacionicon.png" id="9_ui6g6"]
+[ext_resource type="Texture2D" uid="uid://o24pxvlc5sok" path="res://Assets/vidaicon.png" id="10_kovkj"]
+[ext_resource type="Texture2D" uid="uid://b22pc1qgp1mc1" path="res://Assets/knockbackicon.png" id="11_akwi7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pagal"]
 atlas = ExtResource("3_ph2f1")
@@ -61,7 +65,7 @@ animations = [{
 [node name="Mejoraswindow" type="Window"]
 process_mode = 2
 title = "Mejoras"
-position = Vector2i(54, 0)
+position = Vector2i(400, 70)
 size = Vector2i(400, 480)
 borderless = true
 theme_override_fonts/title_font = ExtResource("2_pojhw")
@@ -122,7 +126,7 @@ columns = 3
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer"]
 layout_mode = 2
-texture = ExtResource("7_p22pv")
+texture = ExtResource("7_eqctw")
 expand_mode = 2
 
 [node name="Label" type="Label" parent="GridContainer"]
@@ -146,7 +150,7 @@ text = "mejorar
 
 [node name="TextureRect2" type="TextureRect" parent="GridContainer"]
 layout_mode = 2
-texture = ExtResource("7_p22pv")
+texture = ExtResource("8_k5f6b")
 expand_mode = 2
 
 [node name="Label2" type="Label" parent="GridContainer"]
@@ -169,7 +173,7 @@ text = "mejorar"
 
 [node name="TextureRect3" type="TextureRect" parent="GridContainer"]
 layout_mode = 2
-texture = ExtResource("7_p22pv")
+texture = ExtResource("9_ui6g6")
 expand_mode = 2
 
 [node name="Label3" type="Label" parent="GridContainer"]
@@ -192,7 +196,7 @@ text = "mejorar"
 
 [node name="TextureRect4" type="TextureRect" parent="GridContainer"]
 layout_mode = 2
-texture = ExtResource("7_p22pv")
+texture = ExtResource("10_kovkj")
 expand_mode = 2
 
 [node name="Label4" type="Label" parent="GridContainer"]
@@ -216,7 +220,7 @@ text = "mejorar
 
 [node name="TextureRect5" type="TextureRect" parent="GridContainer"]
 layout_mode = 2
-texture = ExtResource("7_p22pv")
+texture = ExtResource("11_akwi7")
 expand_mode = 2
 
 [node name="Label5" type="Label" parent="GridContainer"]
