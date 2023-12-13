@@ -739,7 +739,7 @@ visible = false
 visible = false
 
 [node name="EnemyChange" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 240.0
 
 [connection signal="timeout" from="EnemySpawn" to="." method="_on_enemy_spawn_timeout"]
 [connection signal="timeout" from="EnemyChange" to="." method="_on_enemy_change_timeout"]
