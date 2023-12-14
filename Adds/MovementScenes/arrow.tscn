@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bdyu13akwmumn"]
+[gd_scene load_steps=11 format=3 uid="uid://bdyu13akwmumn"]
 
 [ext_resource type="Script" path="res://Scripts/arrow.gd" id="1_4f0gs"]
 [ext_resource type="Texture2D" uid="uid://occ2s5j1dngq" path="res://Assets/flecha.png" id="2_ns30x"]
 [ext_resource type="Script" path="res://Adds/MovementScenes/HitBoxArrow.gd" id="3_mhjtu"]
 [ext_resource type="PackedScene" uid="uid://cu1rstmxxcj6a" path="res://Adds/MovementScenes/movimeintoflecha.tscn" id="3_plhua"]
-[ext_resource type="AudioStream" uid="uid://co1kkydesbm6i" path="res://Sounds/ArrowSound.mp3" id="5_sbffl"]
 
 [sub_resource type="Animation" id="Animation_v0usw"]
 resource_name = "Fly"
@@ -122,9 +121,5 @@ wait_time = 0.75
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_fpe2r")
 disabled = true
-
-[node name="ArrowSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_sbffl")
-bus = &"SFX"
 
 [connection signal="timeout" from="FlyingTime" to="." method="_on_timer_timeout"]

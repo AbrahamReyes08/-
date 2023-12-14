@@ -107,7 +107,6 @@ func _on_falling_time_timeout():
 	$MovimientoEnem.speed = 110
 	
 func fallshake():
-	$AudioStreamPlayer.play()
 	jugador.get_node("Camera2D").shake(0.5, 7)
 
 func dead():

@@ -1,11 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://2hgwvwjwwob4"]
+[gd_scene load_steps=17 format=3 uid="uid://2hgwvwjwwob4"]
 
 [ext_resource type="Script" path="res://Scripts/boss.gd" id="1_h5qhd"]
 [ext_resource type="Texture2D" uid="uid://ws5o5dw5ujhb" path="res://Assets/bossburger.png" id="2_oyx61"]
 [ext_resource type="PackedScene" uid="uid://c1jcpr01nhef5" path="res://Adds/MovementScenes/movimientoenem.tscn" id="3_b8co8"]
 [ext_resource type="Script" path="res://Adds/Scenes/HitBoxEnem.gd" id="4_o6i50"]
 [ext_resource type="AudioStream" uid="uid://bag2exfu3orde" path="res://Sounds/death effect.mp3" id="5_217cn"]
-[ext_resource type="AudioStream" uid="uid://bfm25u8pwwxkp" path="res://Sounds/caidaAlto.mp3" id="6_uvjpr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ndxs1"]
 radius = 5.0
@@ -206,10 +205,6 @@ wait_time = 3.75
 
 [node name="FallingTime" type="Timer" parent="."]
 wait_time = 0.6
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_uvjpr")
-bus = &"SFX"
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="timeout" from="JumpCooldown" to="." method="_on_jump_cooldown_timeout"]

@@ -925,7 +925,7 @@ frame_progress = 0.414728
 visible = false
 
 [node name="EnemyChange" type="Timer" parent="."]
-wait_time = 240.0
+wait_time = 30.0
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="area_entered" from="bushesArea" to="." method="_on_bushes_area_area_entered"]
