@@ -370,6 +370,7 @@ texture = ExtResource("1_lonlm")
 
 [node name="sandBackground" type="Sprite2D" parent="."]
 texture_repeat = 2
+position = Vector2(0.666667, 0)
 scale = Vector2(0.996528, 1.00154)
 texture = ExtResource("1_ri6jw")
 centered = false

@@ -14,7 +14,8 @@ func _ready():
 	sprite.frame_coords = Vector2(1, 0)
 	sprite.scale = Vector2(0.8, 0.8)
 	movimiento.setup(self)
-	
+	$AudioStreamPlayer.play()
+
 func set_targets(posicion):
 	self.posicion=posicion
 	direccion = posicion - self.global_position

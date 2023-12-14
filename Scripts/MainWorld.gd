@@ -149,11 +149,11 @@ func _on_enemy_change_timeout():
 
 func _on_bushes_area_area_entered(area):
 	if area.name=="enterCoin":
-		personaje.get_node("Movimiento").speed-=50
+		personaje.get_node("Movimiento").speed-=75
 
 func _on_bushes_area_area_exited(area):
 	if area.name=="enterCoin":
-		personaje.get_node("Movimiento").speed+=50
+		personaje.get_node("Movimiento").speed+=75
 	
 
 func _color_de_la_vida():

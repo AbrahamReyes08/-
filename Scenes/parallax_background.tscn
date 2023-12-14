@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://df6782cwru7"]
+[gd_scene load_steps=2 format=3 uid="uid://df6782cwru7"]
+
+[ext_resource type="Texture2D" uid="uid://cicoegoylquoj" path="res://Assets/fondomenu.png" id="1_tytsu"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
@@ -8,3 +10,8 @@
 offset_right = 1149.0
 offset_bottom = 648.0
 color = Color(0.180392, 0, 0.0980392, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer"]
+offset_right = 1151.0
+offset_bottom = 647.0
+texture = ExtResource("1_tytsu")

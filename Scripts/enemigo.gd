@@ -18,7 +18,7 @@ func set_target(jugador):
 	self.jugador=jugador
 
 func _process(delta):
-	z_index = global_position.x - 1000
+	pass
 
 func _physics_process(delta):
 	var posicion = jugador.position
