@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://5plb74ubdlx0"]
+[gd_scene load_steps=20 format=3 uid="uid://5plb74ubdlx0"]
 
 [ext_resource type="Script" path="res://Scripts/Mejoraswindow.gd" id="1_xk545"]
 [ext_resource type="FontFile" uid="uid://c0c4myavfhko0" path="res://Fonts/ZeroCool.otf" id="2_pojhw"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://htum1aen0d3v" path="res://Assets/curacionicon.png" id="9_ui6g6"]
 [ext_resource type="Texture2D" uid="uid://o24pxvlc5sok" path="res://Assets/vidaicon.png" id="10_kovkj"]
 [ext_resource type="Texture2D" uid="uid://b22pc1qgp1mc1" path="res://Assets/knockbackicon.png" id="11_akwi7"]
+[ext_resource type="AudioStream" uid="uid://de8lldcxwjvps" path="res://Sounds/subirNivel1.mp3" id="12_i05iu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pagal"]
 atlas = ExtResource("3_ph2f1")
@@ -331,6 +332,10 @@ offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("2_pojhw")
 theme_override_font_sizes/font_size = 19
 text = "0"
+
+[node name="SubirNivel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_i05iu")
+bus = &"SFX"
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="mouse_entered" from="GridContainer/HBoxContainer/b1" to="." method="_on_b_1_mouse_entered"]

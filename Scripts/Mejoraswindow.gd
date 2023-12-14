@@ -29,6 +29,7 @@ func _on_b_1_pressed():
 		player.niveles[0] = 3
 	visible=false
 	$Label6/lvlFlechas.text = str(player.niveles[0])
+	$SubirNivel.play()
 
 func _on_b_2_pressed():
 	var nivel = player.niveles[1]
@@ -44,6 +45,7 @@ func _on_b_2_pressed():
 		player.niveles[1] = 3
 	visible=false
 	$"Label7/lvlDaño".text = str(player.niveles[1])
+	$SubirNivel.play()
 
 func _on_b_3_pressed():
 	var nivel = player.niveles[2]
@@ -59,6 +61,7 @@ func _on_b_3_pressed():
 		player.niveles[2] = 3
 	visible=false
 	$Label8/lvlCuracion.text = str(player.niveles[2])
+	$SubirNivel.play()
 
 func _on_b_4_pressed():
 	var nivel = player.niveles[3]
@@ -76,6 +79,7 @@ func _on_b_4_pressed():
 		player.niveles[3] = 3
 	visible=false
 	$Label9/lvlVida.text = str(player.niveles[3])
+	$SubirNivel.play()
 
 func _on_b_5_pressed():
 	var nivel = player.niveles[4]
@@ -91,6 +95,7 @@ func _on_b_5_pressed():
 		player.niveles[4] = 3
 	visible=false
 	$Label10/lvlVelocidad.text=str(player.niveles[4])
+	$SubirNivel.play()
 
 func _on_b_1_mouse_entered():
 	get_tree().get_nodes_in_group("Sonidos")[0].get_node("Click").play()

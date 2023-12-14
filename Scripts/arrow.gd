@@ -14,6 +14,7 @@ func _ready():
 	sprite.frame_coords = Vector2(1, 0)
 	sprite.scale = Vector2(0.8, 0.8)
 	movimiento.setup(self)
+	$ArrowSound.play()
 	
 func set_targets(posicion):
 	self.posicion=posicion
@@ -31,6 +32,7 @@ func _physics_process(delta):
 		animPlayer.play("Fly")
 		movimiento.moverse(direccion)
 		$FlyingTime.start()
+	
 
 func point_at_target(direccion):
 	var angulo = atan2(direccion.y, direccion.x)
