@@ -390,6 +390,7 @@ region_enabled = true
 region_rect = Rect2(344, 456, 136, 24)
 
 [node name="arbol2" type="Sprite2D" parent="."]
+z_index = 1000
 position = Vector2(549.2, 300)
 scale = Vector2(0.844778, 0.798789)
 texture = ExtResource("7_wc04t")
@@ -741,5 +742,8 @@ visible = false
 [node name="EnemyChange" type="Timer" parent="."]
 wait_time = 240.0
 
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="timeout" from="EnemySpawn" to="." method="_on_enemy_spawn_timeout"]
+[connection signal="visibility_changed" from="Popup2" to="." method="_on_popup_2_visibility_changed"]
+[connection signal="visibility_changed" from="Mejoraswindow" to="." method="_on_mejoraswindow_visibility_changed"]
 [connection signal="timeout" from="EnemyChange" to="." method="_on_enemy_change_timeout"]

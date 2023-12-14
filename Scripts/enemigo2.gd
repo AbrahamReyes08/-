@@ -19,7 +19,7 @@ func set_target(jugador):
 	self.jugador=jugador
 
 func _process(delta):
-	z_index = global_position.x
+	z_index = global_position.x - 1000
 
 func _physics_process(delta):
 	var posicion = jugador.position
@@ -64,7 +64,5 @@ func _on_hurt_box_area_entered(HitBox: Area2D):
 
 func loot_coin():
 	var coin=coinLoot.instantiate()
-	if(boss):
-		coin.value = 15
 	coin.global_position = global_position
 	get_tree().get_root().add_child(coin)

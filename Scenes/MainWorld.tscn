@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://hojrojsjyswg"]
+[gd_scene load_steps=52 format=3 uid="uid://hojrojsjyswg"]
 
 [ext_resource type="Script" path="res://Scripts/MainWorld.gd" id="1_8m17j"]
 [ext_resource type="Texture2D" uid="uid://g3rlr8ylqicx" path="res://imports/GrassBackground.png" id="1_u7lvf"]
@@ -229,6 +229,21 @@ height = 22.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yh0iw"]
 size = Vector2(127.75, 126.333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rwjsy"]
+size = Vector2(301.667, 77.6667)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6wwr"]
+size = Vector2(126.417, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8uo65"]
+size = Vector2(111.833, 33.6667)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_twh2i"]
+size = Vector2(30.5, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u54pw"]
+size = Vector2(80.5, 17.6667)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6d6gy"]
 atlas = ExtResource("10_hoy05")
@@ -750,6 +765,26 @@ shape = SubResource("RectangleShape2D_yh0iw")
 position = Vector2(287, 449.667)
 shape = SubResource("RectangleShape2D_yh0iw")
 
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="masCollisionshapes"]
+position = Vector2(886.167, 90.5)
+shape = SubResource("RectangleShape2D_rwjsy")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="masCollisionshapes"]
+position = Vector2(878.875, 145.667)
+shape = SubResource("RectangleShape2D_q6wwr")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="masCollisionshapes"]
+position = Vector2(791.75, 35.8333)
+shape = SubResource("RectangleShape2D_8uo65")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="masCollisionshapes"]
+position = Vector2(830.75, 178.667)
+shape = SubResource("RectangleShape2D_twh2i")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="masCollisionshapes"]
+position = Vector2(775.25, 136.833)
+shape = SubResource("RectangleShape2D_u54pw")
+
 [node name="ArrowThrower" parent="." instance=ExtResource("10_kphet")]
 
 [node name="Node" type="Node" parent="."]
@@ -890,7 +925,7 @@ frame_progress = 0.414728
 visible = false
 
 [node name="EnemyChange" type="Timer" parent="."]
-wait_time = 240.0
+wait_time = 30.0
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="area_entered" from="bushesArea" to="." method="_on_bushes_area_area_entered"]

@@ -48,6 +48,7 @@ func _process(delta):
 		get_tree().paused=true
 		$Mejoraswindow.visible=true
 		personaje.xp=0
+		personaje.nextxp+=5
 	
 	$Personaje/Label2.text=str(personaje.pts)
 	
