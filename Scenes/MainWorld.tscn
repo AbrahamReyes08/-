@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://pyte6dejwilv" path="res://Scenes/pausePopup.tscn" id="11_bljsd"]
 [ext_resource type="Texture2D" uid="uid://jks0ufh4xsx6" path="res://Assets/playerface.jpg" id="12_rehk1"]
 [ext_resource type="AudioStream" uid="uid://3smjlv48x1k1" path="res://Sounds/optime mapa.mp3" id="12_vj42s"]
-[ext_resource type="AudioStream" uid="uid://chi8ianedfwie" path="res://Sounds/loop.mp3" id="13_3owdl"]
 [ext_resource type="Texture2D" uid="uid://dcvphr45xai4y" path="res://imports/pauseIcon.png" id="13_7axqv"]
 [ext_resource type="Texture2D" uid="uid://dgefokw1x05sr" path="res://Assets/barraxp.png" id="15_1pgui"]
 [ext_resource type="Texture2D" uid="uid://d1mf410ur836s" path="res://imports/exit icon.png" id="15_a1ev0"]
@@ -23,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://bnnljjevkd5m2" path="res://Assets/barraxpfill.png" id="16_r21lw"]
 [ext_resource type="Texture2D" uid="uid://di4tndelyn76i" path="res://Assets/miniespada.png" id="17_4troc"]
 [ext_resource type="FontFile" uid="uid://c0c4myavfhko0" path="res://Fonts/ZeroCool.otf" id="19_vurx5"]
+[ext_resource type="AudioStream" uid="uid://4c3kdglncubh" path="res://Sounds/fondosounddd.mp3" id="22_63mgr"]
 [ext_resource type="PackedScene" uid="uid://5plb74ubdlx0" path="res://Scenes/mejoraswindow.tscn" id="22_d80fs"]
 [ext_resource type="Texture2D" uid="uid://n6ux26a3e8am" path="res://imports/Grass.png" id="23_ivx6g"]
 
@@ -1172,7 +1172,7 @@ volume_db = 24.0
 bus = &"SFX"
 
 [node name="fondo" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("13_3owdl")
+stream = ExtResource("22_63mgr")
 volume_db = 24.0
 autoplay = true
 bus = &"Music"
@@ -1190,7 +1190,7 @@ frame_progress = 0.414728
 visible = false
 
 [node name="EnemyChange" type="Timer" parent="."]
-wait_time = 240.0
+wait_time = 10.0
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="area_entered" from="bushesArea" to="." method="_on_bushes_area_area_entered"]
